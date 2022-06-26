@@ -2,7 +2,7 @@ export default {
   // These are app level configs.
   lang: 'zh-CN',
   title: 'skyseek-notes',
-  description: 'Vite & Vue powered static site generator.',
+  description: '一个记录个人学习和总结的笔记文档by寻觅',
   lastUpdated: true,
   base: '/front-end-notes/',
   themeConfig: {
