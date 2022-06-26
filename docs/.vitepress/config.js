@@ -4,7 +4,7 @@ export default {
   title: 'skyseek-notes',
   description: 'Vite & Vue powered static site generator.',
   lastUpdated: true,
-  base: '/',
+  base: '/front-end-notes/',
   themeConfig: {
     siteTitle: '寻觅的前端学习笔记',
     socialLinks: [{ icon: 'github', link: 'https://github.com/mafqla' }],
