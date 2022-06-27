@@ -1,10 +1,14 @@
 export default {
   // These are app level configs.
   lang: 'zh-CN',
+  head: [['link', { rel: 'icon', href: '../images/favicon.ico' }]],
   title: 'skyseek-notes',
   description: '一个记录个人学习和总结的笔记文档by寻觅',
   lastUpdated: true,
   base: '/front-end-notes/',
+  markdown: {
+    theme: 'one-dark-pro',
+  },
   themeConfig: {
     siteTitle: '寻觅的前端学习笔记',
     socialLinks: [{ icon: 'github', link: 'https://github.com/mafqla' }],
