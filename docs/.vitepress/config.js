@@ -64,7 +64,7 @@ function sidebarFrameword() {
           link: '/framework/vue3/basicUsageAndTemplateSyntax',
         },
         { text: 'vue基本指令', link: '/framework/vue3/basicinStruction' },
-        { text: 'v-blid和v-on', link: '/framework/vue3/v-buildAndv-on' },
+        { text: 'v-blid和v-on', link: '/framework/vue3/v-bindAndv-on' },
       ],
     },
   ]
