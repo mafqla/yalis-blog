@@ -65,6 +65,9 @@ function sidebarFrameword() {
         },
         { text: 'vue基本指令', link: '/framework/vue3/basicinStruction' },
         { text: 'v-bind和v-on', link: '/framework/vue3/v-bindAndv-on' },
+        { text: '条件渲染', link: '/framework/vue3/conditionalRendering' },
+        { text: '列表渲染', link: '/framework/vue3/listRendering' },
+        { text: '计算属性', link: '/framework/vue3/calculationProperties' },
       ],
     },
   ]
