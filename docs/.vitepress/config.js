@@ -56,6 +56,7 @@ function nav() {
 function sidebarFrameword() {
   return [
     {
+      text: '基础',
       items: [
         { text: 'vue3的基础概念', link: '/framework/vue3/basicConcepts' },
         { text: '@vue/cli脚手架', link: '/framework/vue3/vue-cli' },
@@ -68,6 +69,9 @@ function sidebarFrameword() {
         { text: '条件渲染', link: '/framework/vue3/conditionalRendering' },
         { text: '列表渲染', link: '/framework/vue3/listRendering' },
         { text: '计算属性', link: '/framework/vue3/calculationProperties' },
+        { text: '侦听器watch', link: '/framework/vue3/watch' },
+        { text: '表单输入绑定', link: '/framework/vue3/v-model' },
+        { text: '组件基础', link: '/framework/vue3/componentFoundationt' },
       ],
     },
   ]
