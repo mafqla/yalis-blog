@@ -14,7 +14,7 @@ export default {
   title: 'skyseek-notes',
   description: '一个记录个人学习和总结的笔记文档by寻觅',
   lastUpdated: true,
-  base: './front-end-notes/',
+  base: '/front-end-notes/',
   markdown: {
     theme: 'one-dark-pro',
   },
