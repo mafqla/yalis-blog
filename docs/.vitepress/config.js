@@ -17,6 +17,7 @@ export default {
   base: '/',
   markdown: {
     theme: 'one-dark-pro',
+    linkify: false,
   },
   themeConfig: {
     siteTitle: '寻觅的前端学习笔记',
@@ -25,6 +26,8 @@ export default {
     nav: nav(),
     sidebar: {
       '/framework/': sidebarFrameword(),
+      '/build-tools/webpack': sidebarWebpack(),
+      '/build-tools/vite': sidebarVite(),
     },
     footer: {
       message: 'Released under the MIT License.',
@@ -41,6 +44,23 @@ export default {
 function nav() {
   return [
     {
+      text: '前端构建工具',
+      items: [
+        { text: 'webpack', link: '/build-tools/webpack/basic' },
+        { text: 'vite', link: '/build-tools/vite/basic' },
+        { text: 'babel.js', link: '/build-tools/babel' },
+      ],
+    },
+    {
+      text: 'vue的插件',
+      items: [
+        { text: 'vue-cli', link: '/framework/vue3/vue-cli' },
+        { text: 'vue-router', link: '/framework/vue3/vue-router' },
+        { text: 'vuex', link: '/framework/vue3/vuex' },
+      ],
+    },
+
+    {
       text: '框架',
       items: [
         {
@@ -53,6 +73,38 @@ function nav() {
   ]
 }
 
+function sidebarWebpack() {
+  return [
+    {
+      items: [
+        { text: 'webpack的基础知识', link: '/build-tools/webpack/basic' },
+        { text: 'webpack的使用步骤', link: '/build-tools/webpack/useSteps' },
+        { text: 'webpack的配置', link: '/build-tools/webpack/config' },
+        {
+          text: 'webpack的开发服务',
+          link: '/build-tools/webpack/webpackService',
+        },
+      ],
+    },
+  ]
+}
+function sidebarVite() {
+  return [
+    {
+      text: '基础',
+      items: [
+        { text: '什么是vite', link: '/build-tools/vite/basic' },
+        { text: 'vite的安装和使用', link: '/build-tools/vite/installUse' },
+        { text: 'vite的支持', link: '/build-tools/vite/support' },
+        {
+          text: 'vite打包项目',
+          link: '/build-tools/vite/build',
+        },
+        { text: 'ESBuild', link: '/build-tools/vite/esBuild' },
+      ],
+    },
+  ]
+}
 function sidebarFrameword() {
   return [
     {
