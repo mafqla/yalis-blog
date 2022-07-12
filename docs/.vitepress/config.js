@@ -34,9 +34,9 @@ export default {
       copyright: 'Copyright © 2022-present fql',
     },
     algolia: {
-      appId: '1A1YH20FRC',
-      apiKey: '0367bf85a804287b8b0517b8d2fa89c3',
-      indexName: 'skyseek-notes',
+      appId: '94CK9VI16P',
+      apiKey: '92ab6af8da0e0c4e59b6ee77e72e074b',
+      indexName: 'yalisky',
     },
   },
 }
