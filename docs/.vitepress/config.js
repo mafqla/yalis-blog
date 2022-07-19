@@ -28,6 +28,7 @@ export default {
       '/framework/': sidebarFrameword(),
       '/build-tools/webpack': sidebarWebpack(),
       '/build-tools/vite': sidebarVite(),
+      '/typescript': sidebarTypeScript(),
     },
     footer: {
       message: 'Released under the MIT License.',
@@ -44,6 +45,10 @@ export default {
 function nav() {
   return [
     {
+      text: 'typescript',
+      link: '/typescript/get-started-quickly',
+    },
+    {
       text: '前端构建工具',
       items: [
         { text: 'webpack', link: '/build-tools/webpack/basic' },
@@ -59,7 +64,6 @@ function nav() {
         { text: 'vuex', link: '/framework/vue3/vuex' },
       ],
     },
-
     {
       text: '框架',
       items: [
@@ -101,6 +105,18 @@ function sidebarVite() {
           link: '/build-tools/vite/build',
         },
         { text: 'ESBuild', link: '/build-tools/vite/esBuild' },
+      ],
+    },
+  ]
+}
+function sidebarTypeScript() {
+  return [
+    {
+      items: [
+        { text: 'typescript的快速上手', link: '/typescript/get-started-quickly' },
+        { text: 'typescript声明变量', link: '/typescript/declare-variables' },
+        { text: 'typescript常用基础类型', link: '/typescript/common-foundation-types' },
+        { text: 'typescript高级类型', link: '/typescript/advanced-type' },
       ],
     },
   ]
