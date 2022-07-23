@@ -117,7 +117,7 @@
 在通过app.component注册一个组件的时候，第一个参数是组件的名称，定义组件名的方式有两种： 
 
 - 方式一：使用kebab-case（短横线分割符） 
-  - 当使用 kebab-case (短横线分隔命名) 定义一个组件时，你也必须在引用这个自定义元素时使用 kebab-case， 例如<my-component-name> ：  
+  - 当使用 kebab-case (短横线分隔命名) 定义一个组件时，你也必须在引用这个自定义元素时使用 kebab-case， 例如\<my-component-name> ：  
 - 方式二：使用PascalCase（驼峰标识符） 
   - 当使用 PascalCase (首字母大写命名) 定义一个组件时，你在引用这个自定义元素时两种命名法都可以使用。也 就是说  \<my-component-name>和\<MyComponentName>  都是可接受的；
 
@@ -173,11 +173,10 @@
 
   示意图：
 
-  :::mermaid
+  ::: mermaid
   flowchart LR;
   id1["Patent(父组件)"]--Pass props-->id2["child(子组件)"]
   id2--$emit Events-->id1
-  
   :::
 
   
@@ -491,7 +490,7 @@
 
 `结构如下:`
 
-:::mermaid
+::: mermaid
 flowchart LR;
 id1["App.vue"]-->id2["Home.vue"]
 id2-->id3["HomeContent.vue"]
