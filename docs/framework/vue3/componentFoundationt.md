@@ -173,12 +173,12 @@
 
   示意图：
 
-  ```mermaid
+  :::mermaid
   flowchart LR;
   id1["Patent(父组件)"]--Pass props-->id2["child(子组件)"]
   id2--$emit Events-->id1
   
-  ```
+  :::
 
   
 
@@ -491,11 +491,11 @@
 
 `结构如下:`
 
-```mermaid
+:::mermaid
 flowchart LR;
 id1["App.vue"]-->id2["Home.vue"]
 id2-->id3["HomeContent.vue"]
-```
+:::
 
 
 
