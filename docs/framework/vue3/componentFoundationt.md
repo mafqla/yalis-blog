@@ -484,7 +484,7 @@
 
   - 子组件不需要知道 inject 的 property 来自哪里
 
-![img](../../imagess/provide-inject.3e0505e4.png)
+![img](../../images/provide-inject.3e0505e4.png)
 
 ###  11.6.2 Provide(提供)和Inject(注入)基本使用
 
