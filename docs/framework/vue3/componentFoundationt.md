@@ -660,4 +660,892 @@ id2-->id3["HomeContent.vue"]
   emitter.off('foo',onFoo)//取消
   ```
 
+  ## 11.7 vue的插槽
+
+`<slot>` 元素是一个**插槽的插口**，标示了父元素提供的**插槽内容**将在哪里被渲染。
+
+- 插槽的使用过程其实是抽取共性、预留不同； 
+- 我们会将共同的元素、内容依然在组件内进行封装； 
+- 如何使用slot呢？ 
+  - Vue中将  元素作为承载分发内容的出口； 
+  - 在封装组件中，使用特殊的元素就可以为封装组件开启一个插槽； 
+  - 该插槽插入什么内容取决于父组件如何使用
+
+###  11.7.1 插槽的基本使用
+
+![img](../../images/slots.dbdaf1e8.png)
+
+`示例：`
+
+
+
+`App.vue`
+
+```vue
+<template>
+  <div>
+    <my-slot-cpn>
+      <button>我是按钮</button>
+    </my-slot-cpn>
+  </div>
+</template>
+
+<script>
+  import MySlotCpn from './MySlotCpn.vue';
+
+  export default {
+    components: {
+      MySlotCpn,
+    }
+  }
+</script>
+```
+
+
+
+按钮在`MySlotCpn.vue`的`<slot>`标签内展示，相当于slot=`<button>我是按钮</button>`
+
+```vue
+<template>
+  <div>
+    <slot>
+    </slot>
+  </div>
+</template>
+
+<script>
+  export default {
+    
+  }
+</script>
+```
+
+
+
+###  11.7.2 具名插槽的使用
+
+- 事实上，我们希望达到的效果是插槽对应的显示，这个时候我们就可以使用 具名插槽： 
+
+  - 具名插槽顾名思义就是给插槽起一个名字， 元素有一个特殊的 attribute：name； 
+
+  - 一个不带 name 的slot，会带有隐含的名字 default；
+
+  - 跟 v-on 和 v-bind 一样，v-slot 也有缩写； 
+
+  - 即把参数之前的所有内容 (v-slot:) 替换为字符 `#`；
+
+    > 注意: 如果还有其他的具名插槽, 那么默认插槽也必须使用template来编写
+
+`示例:`
+
+
+
+`App.vue`
+
+```vue
+<template>
+  <div>
+    <nav-bar :name="name">
+      <template #left>
+        <button>左边的按钮</button>
+      </template>
+      <template #center>
+        <h2>我是标题</h2>
+      </template>
+      <template #right>
+        <i>右边的i元素</i>
+      </template>
+      <template #[name]>
+        <i>why内容</i>
+      </template>
+    </nav-bar>
+  </div>
+</template>
+
+<script>
+  import NavBar from './NavBar.vue';
+
+  export default {
+    components: {
+      NavBar
+    }
+  }
+</script>
+```
+
+
+
+`NavBar.vue`
+
+```vue
+<template>
+  <div class="nav-bar">
+    <div class="left">
+      <slot name="left"></slot>
+    </div>
+    <div class="center">
+      <slot name="center"></slot>
+    </div>
+    <div class="right">
+      <slot name="right"></slot>
+    </div>
+    <div class="addition">
+      <slot :name="name"></slot>
+    </div>
+  </div>
+</template>
+
+<script>
+  export default {
+    props: {
+      name: String
+    }
+  }
+</script>
+
+
+```
+
+
+
+### 11.7.3 动态域名插槽
+
+- 什么是动态插槽名呢？ 
+  - 目前我们使用的插槽名称都是固定的； 
+  - 比如 `v-slot:left`、`v-slot:center`等等； 
+  - 我们可以通过 v-slot:[dynamicSlotName]方式动态绑定一个名称；
+
+`示例：`
+
+```vue
+<template>
+  <div>
+    <nav-bar :name="name">
+      <template #[name]>
+        <i>why内容</i>
+      </template>
+    </nav-bar>
+  </div>
+</template>
+
+<script>
+  import NavBar from './NavBar.vue';
+
+  export default {
+    components: {
+      NavBar
+    },
+    data() {
+      return {
+        name: "why"
+      }
+    }
+  }
+</script>
+```
+
+
+
+### 11.7.4  插槽的渲染作用域
+
+- 在Vue中有渲染作用域的概念： 
+
+  - 父级模板里的所有内容都是在父级作用域中编译的； 
+
+  - 子模板里的所有内容都是在子作用域中编译的； 
+
+- ![image-20220724145056053](../../images/image-20220724145056053.png)
+
+
+
+**如果我们希望插槽可以访问到子组件中的内容：**
+
+- 当一个组件被用来渲染一个数组元素时，我们使用插槽，并且希望插槽中没有显示每项的内容；
+- 我们可以使用作用域插槽
+
+`示例：`
+
+`App.vue`
+
+```vue
+<template>
+  <div>
+    <show-names :names="names">
+      <template v-slot="slotProps">
+        <strong>{{slotProps.item}}-{{slotProps.index}}</strong>
+      </template>
+    </show-names>
+  </div>
+</template>
+
+<script>
+  import ShowNames from './ShowNames.vue';
+
+  export default {
+    components: {
+      ShowNames
+    },
+    data() {
+      return {
+        names: ["why", "kobe", "james", "curry"]
+      }
+    }
+  }
+</script>
+```
+
+
+
+`ShowNames.vue:`
+
+```vue
+<template>
+  <div>
+    <template v-for="(item, index) in names" :key="item">
+      <slot :item="item" :index="index"></slot>
+    </template>
+  </div>
+</template>
+
+<script>
+  export default {
+    props: {
+      names: {
+        type: Array,
+        default: () => []
+      }
+    }
+  }
+</script>
+```
+
+
+
+- 如果我们的插槽是默认插槽default，那么在使用的时候 v-slot:default="slotProps"可以简写为v-slot="slotProps"： 
+- 并且如果我们的插槽只有默认插槽时，组件的标签可以被当做插槽的模板来使用，这样，我们就可以将 v-slot 直 接用在组件上
+
+`v-slot="slotProps"` 可以类比这里的函数签名，和函数的参数类似，我们也可以在 `v-slot` 中使用解构：
+
+```vue
+<MyComponent v-slot="{ text, count }">
+  {{ text }} {{ count }}
+</MyComponent>
+```
+
+
+
+具名作用域插槽的工作方式也是类似的，插槽 props 可以作为 v-slot 指令的值被访问到：v-slot:name="slotProps"。当使用缩写时是这样：
+
+```vue
+<MyComponent>
+
+  <template #header="headerProps">
+    {{ headerProps }}
+  </template>
+
+
+  <template #default="defaultProps">
+    {{ defaultProps }}
+  </template>
+
+
+  <template #footer="footerProps">
+    {{ footerProps }}
+  </template>
+
+</MyComponent>
+```
+
+
+
+## 11.8 动态组件的使用
+
+- 比如我们现在想要实现了一个功能： 
+- 点击一个tab-bar，切换不同的组件显示； 
+- 我们可以通过两种不同的实现思路来实现： 
+  - 方式一：通过v-if来判断，显示不同的组件； 
+  - 方式二：动态组件的方式
+
+
+
+`v-if实现`
+
+```vue
+<template>
+  <div>
+    <button v-for="item in tabs" :key="item"
+            @click="itemClick(item)"
+            :class="{active: currentTab === item}">
+      {{item}}
+    </button>
+    <!-- 1.v-if的判断实现 -->
+  <template v-if="currentTab === 'home'">
+      <home></home>
+    </template>
+    <template v-else-if="currentTab === 'about'">
+      <about></about>
+    </template>
+    <template v-else>
+      <category></category>
+    </template>
+  </div>
+</template>
+
+<script>
+  import Home from './pages/Home.vue';
+  import About from './pages/About.vue';
+  import Category from './pages/Category.vue';
+
+  export default {
+    components: {
+      Home,
+      About,
+      Category
+    },
+    data() {
+      return {
+        tabs: ["home", "about", "category"],
+        currentTab: "home"
+      }
+    },
+    methods: {
+      itemClick(item) {
+        this.currentTab = item;
+      },
+      pageClick() {
+        console.log("page内部发生了点击");
+      }
+    }
+  }
+</script>
+
+<style scoped>
+  .active {
+    color: red;
+  }
+</style>
+```
+
+
+
+`动态组件的实现：`
+
+
+
+-  动态组件是使用 component 组件，通过一个特殊的attribute is 来实现： 
+
+- 这个currentTab的值需要是什么？ 
+
+  - 可以是通过component函数注册的组件； 
+
+  - 在一个组件对象的components对象中注册的组件；
+
+- 动态组件我们可以给它们传值和监听事件 
+
+  - 我们只需要将**属性和监听事件**放到component上来使用；
+
+
+
+```vue
+<template>
+  <div>
+    <button v-for="item in tabs" :key="item"
+            @click="itemClick(item)"
+            :class="{active: currentTab === item}">
+      {{item}}
+    </button>
+
+    <!-- 2.动态组件 -->
+      <component :is="currentTab"
+                 name="coderwhy"
+                 :age="18"
+                 @pageClick="pageClick">
+      </component>
+  </div>
+</template>
+
+<script>
+  import Home from './pages/Home.vue';
+  import About from './pages/About.vue';
+  import Category from './pages/Category.vue';
+
+  export default {
+    components: {
+      Home,
+      About,
+      Category
+    },
+    data() {
+      return {
+        tabs: ["home", "about", "category"],
+        currentTab: "home"
+      }
+    },
+    methods: {
+      itemClick(item) {
+        this.currentTab = item;
+      },
+      pageClick() {
+        console.log("page内部发生了点击");
+      }
+    }
+  }
+</script>
+
+<style scoped>
+  .active {
+    color: red;
+  }
+</style>
+```
+
+
+
+
+
+## 11.9 keep-alive的使用
+
+在开发中某些情况我们希望继续保持组件的状态，而不是销毁掉，这个时候我们就可以使用一个内置组件： **keep-alive**。
+
+```vue
+    <keep-alive include="home,about">
+      <component :is="currentTab"
+                 name="coderwhy"
+                 :age="18"
+                 @pageClick="pageClick">
+      </component>
+    </keep-alive>
+```
+
+
+
+- keep-alive有一些属性： 
+
+  - include - string | RegExp | Array。只有名称匹配的组件会被缓 存； 
+
+  - exclude - string | RegExp | Array。任何名称匹配的组件都不 会被缓存； 
+
+  - max - number | string。最多可以缓存多少组件实例，一旦达 到这个数字，那么缓存组件中最近没有被访问的实例会被销毁； 
+
+`示例:`
+
+```vue
+<!-- 逗号分割字符串 -->
+<keep-alive include="home,about">
+    <component :is="currentTab"</component>
+</keep-alive>
+
+<!-- regx(使用`v-bind`) -->
+<keep-alive :include="/a|b/">
+    <component :is="currentTab"</component>
+</keep-alive>
+<!-- Array(使用`v-bind`) -->
+<keep-alive :include="['a','b']">
+    <component :is="currentTab"</component>
+</keep-alive>
+```
+
+
+
+- include 和 exclude prop 允许组件有条件地缓存： 
+  - 二者都可以用逗号分隔字符串、正则表达式或一个数组来表示； 
+  - 匹配首先检查组件自身的 name 选项；
+
+
+
+## 11.10 异步组件的使用
+
+- 如果我们的项目过大了，对于某些组件我们希望通过异步的方式来进行加载（目的是可以对其进行分包处理），那 么Vue中给我们提供了一个函数：defineAsyncComponent。 
+- defineAsyncComponent接受两种类型的参数： 
+  - 类型一：工厂函数，该工厂函数需要返回一个Promise对象； 
+  - 类型二：接受一个对象类型，对异步函数进行配置；
+
+
+
+`类型一:`
+
+```js
+import { defineAsyncComponent } from 'vue'
+
+const AsyncComp = defineAsyncComponent(() => {
+  return new Promise((resolve, reject) => {
+    // ...从服务器获取组件
+    resolve(/* 获取到的组件 */)
+  })
+})
+```
+
+
+
+```js
+import { defineAsyncComponent } from 'vue'
+
+export default {
+  // ...
+  components: {
+    AsyncComponent: defineAsyncComponent(() =>
+      import('./components/AsyncComponent.vue')
+    )
+  }
+}
+
+//  const AsyncCategory = defineAsyncComponent(() => import("./AsyncCategory.vue"))
+//  export default {
+//  components: {
+//      Home,
+//      AsyncCategory,
+//      Loading
+//    }
+//  }
+```
+
+
+
+`类型二:`
+
+```js
+const AsyncComp = defineAsyncComponent({
+  // 加载函数
+  loader: () => import('./Foo.vue'),
+
+  // 加载异步组件时使用的组件
+  loadingComponent: LoadingComponent,
+  // 展示加载组件前的延迟时间，默认为 200ms
+  delay: 200,
+
+  // 加载失败后展示的组件
+  errorComponent: ErrorComponent,
+  // 如果提供了一个 timeout 时间限制，并超时了
+  // 也会显示这里配置的报错组件，默认值是：Infinity
+  timeout: 3000
+  //   /**
+  //    * err: 错误信息,
+  //    * retry: 函数, 调用retry尝试重新加载
+  //    * attempts: 记录尝试的次数
+  //    */
+  //   onError: function(err, retry, attempts) {
+
+  //   }
+})
+```
+
+
+
+### 11.10.1 内置组件Suspense的使用
+
+> 来自vue3官网的解释
+
+`<Suspense>` 组件有两个插槽：`#default` 和 `#fallback`。两个插槽都只允许**一个**直接子节点。在可能的时候都将显示默认槽中的节点。否则将显示后备槽中的节点。
+
+```vue
+<template>
+  <div>
+    App组件
+    <home></home>
+
+    <suspense>
+      <template #default>
+        <async-category></async-category>
+      </template>
+      <template #fallback>
+        <loading></loading>
+      </template>
+    </suspense>
+
+  </div>
+</template>
+```
+
+
+
+在初始渲染时，`<Suspense>` 将在内存中渲染其默认的插槽内容。如果在这个过程中遇到任何异步依赖，则会进入**挂起**状态。在挂起状态期间，展示的是后备内容。当所有遇到的异步依赖都完成后，`<Suspense>` 会进入**完成**状态，并将展示出默认插槽的内容。
+
+如果在初次渲染时没有遇到异步依赖，`<Suspense>` 会直接进入完成状态。
+
+进入完成状态后，只有当默认插槽的根节点被替换时，`<Suspense>` 才会回到挂起状态。组件树中新的更深层次的异步依赖**不会**造成 `<Suspense>` 回退到挂起状态。
+
+发生回退时，后备内容不会立即展示出来。相反，`<Suspense>` 在等待新内容和异步依赖完成时，会展示之前 `#default` 插槽的内容。这个行为可以通过一个 `timeout` prop 进行配置：在等待渲染新内容耗时超过 `timeout` 之后，`<Suspense>` 将会切换为展示后备内容。若 `timeout` 值为 `0` 将导致在替换默认内容时立即显示后备内容。
+
+## 11.11 引用元素和组件
+
+
+
+### 11.11.1 $refs的使用
+
+- 某些情况下，我们在组件中想要**直接获取到元素对象或者子组件实例**： 
+
+  - 在Vue开发中我们是不推荐进行DOM操作的； 
+
+  - 这个时候，我们可以给元素或者组件绑定一个ref的attribute属性； 
+
+    ```vue
+    <template>
+      <div>
+        <!-- 绑定到一个元素上 -->
+        <h2 ref="title">哈哈哈</h2>
+    
+        <!-- 绑定到一个组件实例上 -->
+        <nav-bar ref="navBar"></nav-bar>
+    
+        <button @click="btnClick">获取元素</button>
+      </div>
+    </template>
+    ```
+
+    
+
+- **组件实例有一个$refs属性**： 
+
+  - 它一个对象Object，持有注册过 ref attribute 的所有 DOM 元素和组件实例
+
+    ```js
+    visitElement(){
+        //访问元素
+        console.log(this.$refs.title)
+        //访问组件实例
+        console.log(this.$refs.helloCpn.$el)
+        //访问组件实例
+        this.$refs.helloCpn.showMessage();
+    }
+    ```
+
+- 我们可以通过\$parent来访问父元素。
+
+-  HelloWorld.vue的实现： 
+
+  - 这里我们也可以通过\$root来实现，因为App是我们的根组件； 
+
+    ```js
+    visitparent(){
+        console.log(this.$parent.message)
+        console.log(this.$root.message;
+    }
+    ```
+
+    
+
+- > 注意：在Vue3中已经移除了$children的属性，所以不可以使用了。
+
+
+
+## 11.12 组件的生命周期
+
+- 什么是生命周期呢？ 
+  - 每个组件都可能会经历从创建、挂载、更新、卸载等一系列的过程； 
+  - 在这个过程中的某一个阶段，用于可能会想要添加一些属于自己的代码逻辑（比如组件创建完后就请求一些服 务器数据）； 
+  - 但是我们如何可以知道目前组件正在哪一个过程呢？Vue给我们提供了组件的生命周期函数；
+
+- 生命周期函数： 
+
+  - 生命周期函数是一些钩子函数，在某个时间会被Vue源码内部进行回调； 
+
+  - 通过对生命周期函数的回调，我们可以知道目前组件正在经历什么阶段； 
+  - 那么我们就可以在该生命周期中编写属于自己的逻辑代码了；
+
+**生命周期的流程**
+
+![image-20220724211234915](../../images/image-20220724211234915.png)
+
+
+
+```js
+    beforeCreate() {
+      console.log("home beforeCreate");
+    },
+    created() {
+      console.log("home created");
+    },
+    beforeMount() {
+      console.log("home beforeMount");
+    },
+    mounted() {
+      console.log("home mounted");
+    },
+    beforeUnmount() {
+      console.log("home beforeUnmount");
+    },
+    unmounted() {
+      console.log("home unmounted");
+    },
+    beforeUpdate() {
+      console.log(this.$refs.title.innerHTML);
+      console.log("home beforeUpdate");
+    },
+    updated() {
+      console.log(this.$refs.title.innerHTML);
+      console.log("home updated");
+    }
+```
+
+###  11.12.1 缓存组件的生命周期
+
+- 对于缓存的组件来说，再次进入时，我们是不会执行created或者mounted等生命周期函数的： 
+- 但是有时候我们确实希望监听到何时重新进入到了组件，何时离开了组件； 
+- 这个时候我们可以使用activated 和 deactivated 这两个生命周期钩子函数来监听；
+
+```js
+activated(){
+    console.log("about activated")
+},
+ deactivated(){
+     console.log("about deactivated")
+ }
+```
+
+
+
+## 11.13  组件的v-model
+
+- 如果我们现在封装了一个组件，其他地方在使用这个组件时，是否也可以使用v-model来同时完成这两个功能呢？ 
+
+- 也是可以的，vue也支持在组件上使用v-model； 
+
+-  当我们在组件上使用的时候，等价于如下的操作： 
+
+  ```vue
+      <!-- 组件上使用v-model -->
+      <hy-input v-model="message"></hy-input>
+      <hy-input :modelValue="message" @update:model-value="message = $event"></hy-input>
+  ```
+
   
+
+- 我们会发现和input元素不同的只是属性的名称和事件触发的名称而已
+
+
+
+### 11.13.1 组件v-model的实现
+
+- 为了我们的MyInput组件可以正常的工作，这个组件内的必须：
+
+  - 将其 value attribute 绑定到一个名叫 modelValue 的 prop 上； 
+
+  - 在其 input 事件被触发时，将新的值通过自定义的 update:modelValue 事件抛出； 
+
+- MyInput.vue的组件代码如下：
+
+  ```vue
+  <template>
+    <div>
+      <!-- 1.默认绑定和事件处理 -->
+      <!-- <button @click="btnClick">hyinput按钮</button>
+      <h2>HyInput的message: {{modelValue}}</h2> -->
+      <!-- 2.通过input -->
+      <!-- <input :value="modelValue" @input="btnClick"> -->
+      <!-- 3.绑定到props中是不对的 -->
+      <!-- <input v-model="modelValue"> -->
+    </div>
+  </template>
+  
+  <script>
+    export default {
+      props: {
+        modelValue: String
+      },
+      emits: ["update:modelValue"],
+      methods: {
+        btnClick(event) {
+          this.$emit("update:modelValue", event.target.value);
+        }
+      }
+    }
+  </script>
+  
+  ```
+
+  
+
+
+
+::: tip
+
+不建议修改props来实现双向绑定
+
+:::
+
+
+
+### 11.13.2 computed实现
+
+```vue
+<template>
+  <div>
+    <input v-model="value">
+  </div>
+</template>
+
+<script>
+  export default {
+    props: {
+      modelValue: String
+    },
+    emits: ["update:modelValue"],
+    computed: {
+      value: {
+        set(value) {
+          this.$emit("update:modelValue", value);
+        },
+        get() {
+          return this.modelValue;
+        }
+      }
+    }
+  }
+</script>
+```
+
+
+
+### 11.13.3 绑定多个属性
+
+
+
+```vue
+   <!-- 绑定两个v-model -->
+    <hy-input v-model="message" v-model:title="title"></hy-input>
+```
+
+- v-model:title相当于做了两件事： 
+
+  - 绑定了title属性； 
+
+  - 监听了 @update:title的事件；
+
+    ```vue
+    <template>
+      <div>
+        <input v-model="value">
+        <input v-model="why">
+      </div>
+    </template>
+    
+    <script>
+      export default {
+        props: {
+          modelValue: String,
+          title: String 
+        },
+        emits: ["update:modelValue", "update:title"],
+        computed: {
+          value: {
+            set(value) {
+              this.$emit("update:modelValue", value);
+            },
+            get() {
+              return this.modelValue;
+            }
+          },
+          why: {
+            set(why) {
+              this.$emit("update:title", why);
+            },
+            get() {
+              return this.title;
+            }
+          }
+        }
+      }
+    </script>
+    ```
+
+    
