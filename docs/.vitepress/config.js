@@ -88,6 +88,7 @@ function sidebarWebpack() {
           text: 'webpack的开发服务',
           link: '/build-tools/webpack/webpackService',
         },
+        { text: 'webpack的补充', link: '/build-tools/webpack/support' },
       ],
     },
   ]
