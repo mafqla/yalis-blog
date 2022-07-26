@@ -141,6 +141,7 @@ function sidebarFrameword() {
         { text: '侦听器watch', link: '/framework/vue3/watch' },
         { text: '表单输入绑定', link: '/framework/vue3/v-model' },
         { text: '组件基础', link: '/framework/vue3/componentFoundationt' },
+        { text: '内置组件Transition过渡', link: '/framework/vue3/Transition' },
       ],
     },
   ]
