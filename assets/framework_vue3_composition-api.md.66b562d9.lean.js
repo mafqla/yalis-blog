@@ -1,1 +1,0 @@
-import{_ as e,c as t,o}from"./app.c475263d.js";const _=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"framework/vue3/composition-api.md","lastUpdated":1658936175000}'),a={name:"framework/vue3/composition-api.md"};function r(s,i,p,c,n,m){return o(),t("div")}var f=e(a,[["render",r]]);export{_ as __pageData,f as default};
