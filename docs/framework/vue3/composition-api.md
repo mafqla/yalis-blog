@@ -2043,3 +2043,58 @@ const i18n = inject('i18n')
 console.log(i18n.greetings.hello)
 </script>
 ```
+
+
+
+## 13.3 nextTick
+
+等待下一次 DOM 更新刷新的工具方法。
+
+- 比如我们有下面的需求： 
+
+  - 点击一个按钮，我们会修改在h2中显示的message； 
+  - message被修改后，获取h2的高度； 
+
+- 实现上面的案例我们有三种方式： 
+
+  - 方式一：在点击按钮后立即获取到h2的高度（错误的做法） 
+  - 方式二：在updated生命周期函数中获取h2的高度（但是其他数据更新，也会执行该操作） p方式三：使用nexttick函数；
+
+- **类型**
+
+  ```
+  function nextTick(callback?: () => void): Promise<void>
+  ```
+
+- **详细信息**
+
+  当你在 Vue 中更改响应式状态时，最终的 DOM 更新并不是同步生效的，而是由 Vue 将它们缓存到“next tick”以确保每个组件无论发生多少状态改变，都仅执行一次更新。
+
+  `nextTick()` 可以在状态改变后立即使用，以等待 DOM 更新完成。你可以传递一个回调函数作为参数，或者 await 返回的 Promise。
+
+- **示例**
+
+  ```vue
+  <script setup>
+  import { ref, nextTick } from 'vue'
+  
+  const count = ref(0)
+  
+  async function increment() {
+    count.value++
+  
+    // DOM 还未更新
+    console.log(document.getElementById('counter').textContent) // 0
+  
+    await nextTick()
+    // DOM 此时已经更新
+    console.log(document.getElementById('counter').textContent) // 1
+  }
+  </script>
+  
+  <template>
+    <button id="counter" @click="increment">{{ count }}</button>
+  </template>
+  ```
+
+ 
