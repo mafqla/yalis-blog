@@ -28,6 +28,7 @@ export default {
       '/framework/': sidebarFrameword(),
       '/build-tools/webpack': sidebarWebpack(),
       '/build-tools/vite': sidebarVite(),
+      '/build-tools/project-build': sidebarProjectBuild(),
       '/typescript': sidebarTypeScript()
     },
     footer: {
@@ -53,15 +54,19 @@ function nav() {
       items: [
         { text: 'webpack', link: '/build-tools/webpack/basic' },
         { text: 'vite', link: '/build-tools/vite/basic' },
-        { text: 'babel.js', link: '/build-tools/babel' }
+        { text: 'babel.js', link: '/build-tools/babel' },
+        {
+          text: '项目搭建',
+          link: '/build-tools/project-build/code-specification'
+        }
       ]
     },
     {
       text: 'vue的插件',
       items: [
         { text: 'vue-cli', link: '/framework/vue3/vue-cli' },
-        { text: 'vue-router', link: '/framework/vue3/vue-router' },
-        { text: 'vuex', link: '/framework/vue3/vuex' }
+        { text: 'vue-router', link: '/vue-plugin/vue-router' },
+        { text: 'vuex', link: '/vue-plugin/vuex' }
       ]
     },
     {
@@ -110,6 +115,27 @@ function sidebarVite() {
     }
   ]
 }
+function sidebarProjectBuild() {
+  return [
+    {
+      items: [
+        {
+          text: '一. 代码规范',
+          link: '/build-tools//project-build/code-specification'
+        },
+        {
+          text: '二. 第三方库集成',
+          link: '/build-tools/project-build/third-party-library-integration'
+        },
+        {
+          text: '三. 默认配置',
+          link: '/build-tools/project-build/default-configuration'
+        }
+      ]
+    }
+  ]
+}
+
 function sidebarTypeScript() {
   return [
     {
