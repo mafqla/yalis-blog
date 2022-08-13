@@ -278,8 +278,12 @@ npm set-script prepare "husky install"
 1.安装Commitizen
 
 ```shell
-npm install commitizen -D
+npm install -g commitizen@4.2.4
 ```
+
+::: tip
+使用自定义提交风格的话,不需要执行下一步。直接按照[1.5.2](###1.5.2自定义提交风格)的步骤即可。
+:::
 
 2.安装cz-conventional-changelog，并且初始化cz-conventional-changelog：
 
@@ -339,7 +343,7 @@ npx commitizen init cz-conventional-changelog --save-dev --save-exact
 
 
 
-###  1.5.2.  自定义提交风格
+### 1.5.2自定义提交风格
 
 1. 安装并配置 `cz-customizable` 插件
 
