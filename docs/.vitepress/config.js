@@ -50,11 +50,12 @@ function nav() {
       link: '/typescript/get-started-quickly'
     },
     {
-      text: '前端构建工具',
+      text: '前端工具库',
       items: [
         { text: 'webpack', link: '/build-tools/webpack/basic' },
         { text: 'vite', link: '/build-tools/vite/basic' },
         { text: 'babel.js', link: '/build-tools/babel' },
+        { text: 'axios', link: '/build-tools/axios' },
         {
           text: '项目搭建',
           link: '/build-tools/project-build/code-specification'
@@ -62,11 +63,12 @@ function nav() {
       ]
     },
     {
-      text: 'vue的插件',
+      text: 'vue的库',
       items: [
         { text: 'vue-cli', link: '/framework/vue3/vue-cli' },
         { text: 'vue-router', link: '/vue-plugin/vue-router' },
-        { text: 'vuex', link: '/vue-plugin/vuex' }
+        { text: 'vuex', link: '/vue-plugin/vuex' },
+        { text: 'pinia', link: '/vue-plugin/pinia' }
       ]
     },
     {
@@ -175,7 +177,7 @@ function sidebarFrameword() {
         { text: '组件基础', link: '/framework/vue3/componentFoundationt' },
         { text: '内置组件Transition过渡', link: '/framework/vue3/Transition' },
         { text: '组合式api', link: '/framework/vue3/composition-api' },
-        {text:'补充',link:'/framework/vue3/supplement'}
+        { text: '补充', link: '/framework/vue3/supplement' }
       ]
     }
   ]
