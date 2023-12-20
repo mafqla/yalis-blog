@@ -3,13 +3,41 @@
     <div class="meta-item original">
       <a-tag v-if="isOriginal" color="orangered" title="原创文章">
         <template #icon>
-          <icon-trophy />
+          <svg
+            data-v-caa20599=""
+            viewBox="0 0 48 48"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            stroke="currentColor"
+            class="arco-icon arco-icon-trophy"
+            stroke-width="4"
+            stroke-linecap="butt"
+            stroke-linejoin="miter"
+          >
+            <path
+              d="M24 33c-6.075 0-11-4.925-11-11m11 11c6.075 0 11-4.925 11-11M24 33v8M13 22V7h22v15m-22 0V9H7v7a6 6 0 0 0 6 6Zm22 0V9h6v7a6 6 0 0 1-6 6ZM12 41h24"
+            ></path>
+          </svg>
         </template>
         原创
       </a-tag>
       <a-tag v-else color="arcoblue" title="转载文章">
         <template #icon>
-          <icon-share-alt />
+          <svg
+            data-v-caa20599=""
+            viewBox="0 0 48 48"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            stroke="currentColor"
+            class="arco-icon arco-icon-share-alt"
+            stroke-width="4"
+            stroke-linecap="butt"
+            stroke-linejoin="miter"
+          >
+            <path
+              d="M32.442 21.552a4.5 4.5 0 1 1 .065 4.025m-.065-4.025-16.884-8.104m16.884 8.104A4.483 4.483 0 0 0 32 23.5c0 .75.183 1.455.507 2.077m-16.95-12.13a4.5 4.5 0 1 1-8.113-3.895 4.5 4.5 0 0 1 8.114 3.896Zm-.064 20.977A4.5 4.5 0 1 0 11.5 41c3.334-.001 5.503-3.68 3.993-6.578Zm0 0 17.014-8.847"
+            ></path>
+          </svg>
         </template>
         转载
       </a-tag>
@@ -139,6 +167,7 @@ import { reactive, toRefs } from 'vue'
 import { useData } from 'vitepress'
 import dayjs from 'dayjs'
 import relativeTime from 'dayjs/plugin/relativeTime'
+
 import { goToLink } from '../utils'
 
 dayjs.extend(relativeTime)

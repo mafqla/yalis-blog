@@ -861,7 +861,7 @@ id2-->id3["HomeContent.vue"]
 
   - 子模板里的所有内容都是在子作用域中编译的； 
 
-- ![image-20220724145056053](../../images/image-20220724145056053.png)
+- ![image-20220724145056053](../../../../public/images/image-20220724145056053.png)
 
 
 
@@ -1351,7 +1351,7 @@ const AsyncComp = defineAsyncComponent({
 
 **生命周期的流程**
 
-![image-20220724211234915](../../images/image-20220724211234915.png)
+![image-20220724211234915](../../../../public/images/image-20220724211234915.png)
 
 
 

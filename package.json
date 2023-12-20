@@ -15,6 +15,8 @@
   },
   "devDependencies": {
     "@types/blueimp-md5": "^2.18.2",
+    "@mermaid-js/mermaid-mindmap": "^9.3.0",
+    "mermaid": "10.5.0",
     "fast-glob": "^3.3.2",
     "unplugin-auto-import": "^0.17.2",
     "unplugin-vue-components": "^0.26.0",
@@ -30,7 +32,13 @@
     "blueimp-md5": "^2.19.0",
     "dayjs": "^1.11.10",
     "gray-matter": "^4.0.3",
-    "mermaid": "9.3.0",
     "sass": "^1.69.5"
+  },
+  "pnpm": {
+    "overrides": {
+      "@antv/g-base": "0.5.11",
+      "@antv/path-util": "2.0.15",
+      "@antv/attr": "0.3.5"
+    }
   }
 }

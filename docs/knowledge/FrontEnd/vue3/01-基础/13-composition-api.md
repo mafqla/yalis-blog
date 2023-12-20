@@ -1002,7 +1002,7 @@ watch(
 
 setup 可以用来替代 data 、 methods 、 computed 、watch 等等这些选项，也可以替代 生命周 期钩子
 
-![image-20220726173351155](../../images//image-20220726173351155.png)
+![image-20220726173351155](../../../../public/images//image-20220726173351155.png)
 
 `示例`
 

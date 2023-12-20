@@ -16,6 +16,7 @@ export default withMermaid(
 
     head, // <head>内标签配置
     markdown: markdown, // Markdown配置
-    themeConfig // 主题配置
+    themeConfig, // 主题配置
+    ignoreDeadLinks: true // 忽略死链接
   })
 )

@@ -19,10 +19,15 @@ export default defineConfig({
       ]
     })
   ],
-
-  optimizeDeps: {
-    include: ['moment-mini', '@braintree/sanitize-url', 'mermaid']
+  build: {
+    minify: 'esbuild'
   },
+
+  esbuild: {
+    drop: ['console', 'debugger'],
+    format: 'esm'
+  },
+  ssr: { noExternal: ['@arco-design/web-vue'] },
   resolve: {
     alias: {
       mermaid: 'mermaid/dist/mermaid.esm.mjs'
