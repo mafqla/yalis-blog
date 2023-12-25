@@ -2,7 +2,7 @@ import type { DefaultTheme } from 'vitepress'
 
 export const nav: DefaultTheme.Config['nav'] = [
   {
-    text: '我的博客',
+    text: '博客',
     link: '/blogs/index',
     activeMatch: '/blogs/'
   },
@@ -83,12 +83,12 @@ export const nav: DefaultTheme.Config['nav'] = [
     activeMatch: '/nav'
   },
   {
-    text: '我的标签',
+    text: '标签',
     link: '/tags',
     activeMatch: '/tags'
   },
   {
-    text: '我的归档',
+    text: '归档',
     link: '/archives',
     activeMatch: '/archives'
   }

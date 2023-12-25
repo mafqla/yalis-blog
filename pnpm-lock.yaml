@@ -31,6 +31,9 @@ dependencies:
   sass:
     specifier: ^1.69.5
     version: 1.69.5
+  three:
+    specifier: ^0.159.0
+    version: 0.159.0
 
 devDependencies:
   '@mermaid-js/mermaid-mindmap':
@@ -3303,6 +3306,10 @@ packages:
       object-inspect: 1.12.3
       resolve: 1.22.8
       string.prototype.trim: 1.2.8
+    dev: false
+
+  /three@0.159.0:
+    resolution: {integrity: sha512-eCmhlLGbBgucuo4VEA9IO3Qpc7dh8Bd4VKzr7WfW4+8hMcIfoAVi1ev0pJYN9PTTsCslbcKgBwr2wNZ1EvLInA==}
     dev: false
 
   /to-fast-properties@2.0.0:

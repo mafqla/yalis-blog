@@ -9,7 +9,7 @@ const blogs = articleData.filter(item => {
 })
 // console.log(blogs)
 const total = ref(blogs.length)
-
+const defaultBg = 'https://source.unsplash.com/random/400x300/?landscape'
 const paginationProps = reactive({
   defaultPageSize: 6,
   total: total.value,
@@ -41,7 +41,7 @@ const goToLink = (link: string) => {
           </template>
           <template #extra>
             <div className="image-area">
-              <a-image width="400" height="300" :src="item.cover" />
+              <a-image :src="item.cover || defaultBg" />
             </div>
           </template>
           <a-list-item-meta :title="item.title" :description="item.description">
@@ -75,11 +75,14 @@ const goToLink = (link: string) => {
 
 .list-demo-action-layout .image-area img {
   width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .list-demo-action-layout .arco-list-item-action .arco-icon {
   margin: 0 4px;
 }
+
 :deep(.arco-list-item-meta) {
   height: 100px;
 }
