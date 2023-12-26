@@ -3,7 +3,21 @@ import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import { ArcoResolver } from 'unplugin-vue-components/resolvers'
 
+
 export default defineConfig({
+  server: {
+    proxy: {
+      '/douyin': {
+        target: 'https://www.douyin.com',
+        changeOrigin: true,
+        headers: {
+          referer: 'https://www.douyin.com/',
+          origin: 'https://www.douyin.com/'
+        },
+        rewrite: path => path.replace(/^\/douyin/, '')
+      }
+    }
+  },
   plugins: [
     AutoImport({
       resolvers: [ArcoResolver()]
@@ -23,6 +37,7 @@ export default defineConfig({
     minify: 'esbuild'
   },
 
+  assetsInclude: ['**/*.png'],
   esbuild: {
     drop: ['console', 'debugger'],
     format: 'esm'

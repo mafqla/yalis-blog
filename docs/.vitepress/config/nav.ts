@@ -88,6 +88,11 @@ export const nav: DefaultTheme.Config['nav'] = [
     activeMatch: '/tags'
   },
   {
+    text: '热搜',
+    link: '/hot',
+    activeMatch: '/hot'
+  },
+  {
     text: '归档',
     link: '/archives',
     activeMatch: '/archives'
