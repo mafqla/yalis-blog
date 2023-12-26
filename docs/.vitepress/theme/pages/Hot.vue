@@ -4,15 +4,12 @@ import Douyin from '../components/hot/douyin.vue'
 <template>
   <div class="hot">
     <a-list
-      :grid-props="{ gutter: [20, 20], sm: 4, md: 12, lg: 12, xl: 6 }"
+      :grid-props="{ gutter: [5, 5], xs: 6, md: 12, lg: 10, xl: 6 }"
       :bordered="false"
     >
       <a-list-item>
         <Douyin />
       </a-list-item>
-      <a-list-item> </a-list-item>
-      <a-list-item> </a-list-item>
-      <a-list-item> </a-list-item>
     </a-list>
   </div>
 </template>
@@ -21,5 +18,13 @@ import Douyin from '../components/hot/douyin.vue'
 .hot {
   width: 100%;
   height: 100%;
+  padding-top: 60px;
+}
+
+:depp(.VPDoc:not(.has-sidebar) .content) {
+  max-width: none !important;
+}
+:deep(.VPDoc:not(.has-sidebar) .container) {
+  max-width: none !important;
 }
 </style>

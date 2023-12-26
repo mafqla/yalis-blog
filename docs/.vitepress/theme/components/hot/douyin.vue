@@ -44,6 +44,8 @@ const selectItem = (index: number) => {
   selectedIndex.value = index
 }
 
+const height = 660
+
 watchEffect(async () => {
   if (selectedIndex.value === 0) {
     listData.value = (await hot()).data.word_list
@@ -59,7 +61,7 @@ watchEffect(async () => {
 })
 </script>
 <template>
-  <div class="hot-item">
+  <div class="hot-item" :style="{ height: `${height}px` }">
     <div class="hot-item-main">
       <div class="hot-item-blank"></div>
       <div class="hot-item-content">
@@ -249,10 +251,8 @@ a:hover {
               }
 
               .hot-box-num {
-                background-color: var(--color-bg-b2);
-
                 border-radius: 50%;
-                color: var(--color-text-t1);
+                color: var(--color-text-t3);
                 display: flex;
                 font-size: 18px;
                 height: 24px;
@@ -353,7 +353,6 @@ a:hover {
     width: 12px;
     height: 24px;
     color: var(--color-text-t3);
-    // color: rgba(255, 255, 255, 0.5);
   }
 }
 </style>

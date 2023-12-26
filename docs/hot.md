@@ -1,5 +1,6 @@
 ---
 title: 热搜
+layout: home
 aside: false
 editLink: false
 lastUpdated: false

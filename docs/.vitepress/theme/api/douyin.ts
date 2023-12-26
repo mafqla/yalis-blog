@@ -2,12 +2,8 @@ import axios from 'axios'
 import { defalutParams } from './params'
 
 const service = axios.create({
-  baseURL: 'https://www.douyin.com', // api的base_url
-  timeout: 5000, // 请求超时时间,
-  headers: {
-    //允许跨域
-    'Access-Control-Allow-Origin': '*'
-  }
+  baseURL: '/douyin', // api的base_url
+  timeout: 5000, // 请求超时时间
 })
 service.interceptors.response.use(
   response => {
