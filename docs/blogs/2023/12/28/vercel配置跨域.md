@@ -2,7 +2,7 @@
 title: Vercel 配置跨域
 description: 部署前端项目到Vercel，解决跨域的问题
 author: yalis
-date: 2023-12-28 15:44:25
+date: 2023-12-28 15:44
 categories:
   - vercel
 tags:
