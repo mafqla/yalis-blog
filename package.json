@@ -32,6 +32,7 @@
     "blueimp-md5": "^2.19.0",
     "dayjs": "^1.11.10",
     "gray-matter": "^4.0.3",
+    "http-proxy-middleware": "^2.0.6",
     "sass": "^1.69.5",
     "three": "^0.159.0"
   },
