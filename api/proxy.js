@@ -6,14 +6,6 @@ export default (req, res) => {
   if (req.url.startsWith('/douyin')) {
     target = 'https://douyin.com'
   }
-
-  createProxyMiddleware({
-    target,
-    changeOrigin: true,
-    pathRewrite: {
-      '^/douyin/': '/'
-    }
-  })
   res.setHeader('Access-Control-Allow-Origin', '*')
   res.setHeader(
     'Access-Control-Allow-Methods',
@@ -21,7 +13,11 @@ export default (req, res) => {
   )
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type')
 
-  return new Promise(resolve => {
-    proxyMiddleware(req, res, resolve)
-  })
+  createProxyMiddleware({
+    target,
+    changeOrigin: true,
+    pathRewrite: {
+      '^/douyin/': '/'
+    }
+  })(req, res)
 }
