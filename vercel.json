@@ -2,7 +2,7 @@
   "rewrites": [
     {
       "source": "/douyin/(.*)",
-      "destination": "/douyin/proxy"
+      "destination": "/api/proxy"
     }
   ]
 }
