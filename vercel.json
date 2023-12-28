@@ -1,8 +1,8 @@
 {
   "rewrites": [
     {
-      "source": "/api/(.*)",
-      "destination": "/api/proxy"
+      "source": "/douyin/(.*)",
+      "destination": "/douyin/proxy"
     }
   ]
 }
