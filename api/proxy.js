@@ -22,6 +22,6 @@ export default (req, res) => {
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type')
 
   return new Promise(resolve => {
-    proxy(req, res, resolve)
+    proxyMiddleware(req, res, resolve)
   })
 }
