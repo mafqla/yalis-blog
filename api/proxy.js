@@ -1,23 +1,27 @@
-// 该服务为 vercel serve跨域处理
 import { createProxyMiddleware } from 'http-proxy-middleware'
-export default (req, res) => {
-  let target = ''
 
-  if (req.url.startsWith('/douyin')) {
-    target = 'https://douyin.com'
+export default async function handler(req, res) {
+  const target = req.url.startsWith('/douyin') ? 'https://www.douyin.com' : ''
+
+  if (target) {
+    res.setHeader('Access-Control-Allow-Origin', '*')
+    res.setHeader(
+      'Access-Control-Allow-Methods',
+      'GET,HEAD,PUT,PATCH,POST,DELETE'
+    )
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type')
+
+    await new Promise(resolve => {
+      createProxyMiddleware({
+        target,
+        changeOrigin: true,
+        pathRewrite: {
+          '^/douyin/': '/'
+        }
+      })(req, res, resolve)
+    })
+  } else {
+    res.statusCode = 404
+    res.end('Not Found')
   }
-  res.setHeader('Access-Control-Allow-Origin', '*')
-  res.setHeader(
-    'Access-Control-Allow-Methods',
-    'GET,HEAD,PUT,PATCH,POST,DELETE'
-  )
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type')
-
-  createProxyMiddleware({
-    target,
-    changeOrigin: true,
-    pathRewrite: {
-      '^/douyin/': '/'
-    }
-  })(req, res)
 }
