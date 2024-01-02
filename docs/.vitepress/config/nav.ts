@@ -70,6 +70,11 @@ export const nav: DefaultTheme.Config['nav'] = [
         activeMatch: '/knowledge/build-tools/'
       },
       {
+        text: '掘金小册',
+        link: '/knowledge/courses/index.md',
+        activeMatch: '/knowledge/courses/'
+      },
+      {
         text: '其他',
         link: '/knowledge/other',
         activeMatch: '/knowledge/other/'

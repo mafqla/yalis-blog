@@ -11,7 +11,8 @@ export const sidebar: DefaultTheme.Config['sidebar'] = {
   '/knowledge/FrontEnd/typescript': getItemsWithoutGroup(
     'knowledge/FrontEnd/typescript'
   ),
-  '/knowledge/build-tools': getItems('knowledge/build-tools')
+  '/knowledge/build-tools': getItems('knowledge/build-tools'),
+  '/knowledge/courses': getItems('knowledge/courses')
 }
 
 /**
@@ -132,7 +133,7 @@ function getItems(path: string) {
     onlyDirectories: true,
     objectMode: true
   }).forEach(({ name }) => {
-    if (name !== 'images') {
+    if (name !== 'images' && name !== 'assets' && name !== 'img') {
       let groupName = name
       //去除name为images的文件夹
 
@@ -141,13 +142,26 @@ function getItems(path: string) {
         onlyFiles: true,
         objectMode: true
       }).forEach(article => {
+        console.log(article)
         const articleFile = matter.read(`${article.path}`)
         const { data } = articleFile
+        //先排序
         // 向前追加标题
         items.push({
-          text: data.title,
+          text: data.title || article.name.replace('.md', ''),
           link: `/${path}/${groupName}/${article.name.replace('.md', '')}`
         })
+        // 根据文章序号排序
+        items.sort((a, b) => {
+          const getNumber = (text?: string) =>
+            parseInt((text ?? '').split('-')[0], 10)
+          return getNumber(a.text) - getNumber(b.text)
+        })
+
+        // // 去除排序后的标题中的序号
+        // items.forEach(item => {
+        //   item.text = item.text.replace(/^\d+\s*-\s*/, '')
+        // })
         total += 1
       })
 
@@ -206,13 +220,19 @@ function addOrderNumber(groups: string | any[]) {
       const items = groups[i].items
       const index = j + 1
       let indexStyle = `<div class="text-color-gray mr-[6px]" style="font-weight: 550; display: inline-block;">${index}</div>`
-      if (index == 1) {
+
+      // 去除已有的序号
+      items[j].text = items[j].text.replace(/^\s*\d+\s*-\s*/, '')
+
+      // 添加新的序号
+      if (index === 1) {
         indexStyle = `<div class="text-color-red mr-[6px]" style="font-weight: 550; display: inline-block;">${index}</div>`
-      } else if (index == 2) {
+      } else if (index === 2) {
         indexStyle = `<div class="text-color-orange mr-[6px]" style="font-weight: 550; display: inline-block;">${index}</div>`
-      } else if (index == 3) {
+      } else if (index === 3) {
         indexStyle = `<div class="text-color-yellow mr-[6px]" style="font-weight: 550; display: inline-block;">${index}</div>`
       }
+
       items[j].text = `${indexStyle}${items[j].text}`
     }
   }
