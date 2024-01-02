@@ -39,7 +39,7 @@ export default defineConfig({
     minify: 'esbuild'
   },
 
-  assetsInclude: ['**/*.png'],
+  assetsInclude: ['**/*.png', '**/*.image'],
   esbuild: {
     drop: ['console', 'debugger'],
     format: 'esm'
