@@ -16,5 +16,9 @@ export const markdown: MarkdownOptions = {
         htmlResult += `\n<ClientOnly><ArticleMetadata v-if="($frontmatter?.aside ?? true) && ($frontmatter?.showArticleMetadata ?? true)" :article="$frontmatter" /></ClientOnly>`
       return htmlResult
     }
+  },
+  image: {
+    // image lazy loading is disabled by default
+    lazyLoading: true
   }
 }
