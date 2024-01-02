@@ -12,7 +12,8 @@ export const sidebar: DefaultTheme.Config['sidebar'] = {
     'knowledge/FrontEnd/typescript'
   ),
   '/knowledge/build-tools': getItems('knowledge/build-tools'),
-  '/knowledge/courses': getItems('knowledge/courses')
+  '/knowledge/courses': getItems('knowledge/courses'),
+  '/knowledge/FrontEnd/css': getItems('knowledge/FrontEnd/css')
 }
 
 /**
@@ -142,7 +143,6 @@ function getItems(path: string) {
         onlyFiles: true,
         objectMode: true
       }).forEach(article => {
-        console.log(article)
         const articleFile = matter.read(`${article.path}`)
         const { data } = articleFile
         //先排序
@@ -158,10 +158,6 @@ function getItems(path: string) {
           return getNumber(a.text) - getNumber(b.text)
         })
 
-        // // 去除排序后的标题中的序号
-        // items.forEach(item => {
-        //   item.text = item.text.replace(/^\d+\s*-\s*/, '')
-        // })
         total += 1
       })
 

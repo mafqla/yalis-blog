@@ -16,7 +16,7 @@ export const nav: DefaultTheme.Config['nav'] = [
       },
       {
         text: 'CSS',
-        link: '/knowledge/FrontEnd/css',
+        link: '/knowledge/FrontEnd/css/index',
         activeMatch: '/knowledge/FrontEnd/css/'
       },
       {
