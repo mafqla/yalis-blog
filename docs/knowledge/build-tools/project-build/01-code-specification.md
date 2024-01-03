@@ -41,7 +41,7 @@ Prettier 是一款强大的代码格式化工具，支持 JavaScript、TypeScrip
 
 
 
-[`prettier` 中文官网！](https://www.prettier.cn/)  
+[`prettier` 中文官网](https://www.prettier.cn/)  
 
 
 

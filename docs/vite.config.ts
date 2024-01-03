@@ -36,10 +36,20 @@ export default defineConfig({
     })
   ],
   build: {
-    minify: 'esbuild'
+    minify: 'esbuild',
+    cssMinify: 'esbuild',
+    reportCompressedSize: true
   },
 
-  assetsInclude: ['**/*.png', '**/*.image'],
+  assetsInclude: [
+    '**/*.png',
+    '**/*.image',
+    '**/*.svg',
+    '**/*.ico',
+    '**/*.gif',
+    '**/*.jpg',
+    '**/*.jpeg'
+  ],
   esbuild: {
     drop: ['console', 'debugger'],
     format: 'esm'
