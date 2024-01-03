@@ -12,6 +12,16 @@
         />
       </ClientOnly>
     </template>
+    <template #doc-after>
+      <Comment
+        v-if="
+          (theme.commentConfig?.showComment ?? true) &&
+          (frontmatter?.showComment ?? true)
+        "
+        :commentConfig="theme.commentConfig"
+        :key="md5(page.relativePath)"
+      />
+    </template>
     <template #layout-bottom>
       <!-- 
       1. hasSidebar: 如果当前页面有侧边栏，就不显示footer
@@ -36,6 +46,7 @@ import { useData } from 'vitepress'
 import md5 from 'blueimp-md5'
 import Copyright from './components/layout/Copyright.vue'
 import Footer from './components/layout/Footer.vue'
+import Comment from './components/layout/Comment.vue'
 
 const { Layout } = DefaultTheme
 const { page, theme, frontmatter } = useData()
