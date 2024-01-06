@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.0-alpha](https://github.com/mafqla/yalis-blog/compare/v0.2.1-alpha...v0.3.0-alpha) (2024-01-06)
+
+
+### Features
+
+* 新增文章 ([38615f5](https://github.com/mafqla/yalis-blog/commit/38615f5ffa18fbe3eed694fc6e2392c7ea42a8f7))
+
 ## [0.2.1-alpha](https://github.com/mafqla/yalis-blog/compare/v0.2.0-alpha...v0.2.1-alpha) (2024-01-06)
 
 
