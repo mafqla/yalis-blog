@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.0-alpha](https://github.com/mafqla/yalis-blog/compare/v0.1.0-alpha...v0.2.0-alpha) (2024-01-06)
+
+
+### Features
+
+* 新增5篇css学习 ([88f5b8a](https://github.com/mafqla/yalis-blog/commit/88f5b8ade8bcddb5a4014a608435c9856773a9b6))
+
 ## [0.1.0-alpha](https://github.com/mafqla/yalis-blog/compare/v0.0.1-alpha...v0.1.0-alpha) (2024-01-06)
 
 
