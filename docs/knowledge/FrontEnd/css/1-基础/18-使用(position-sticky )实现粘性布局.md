@@ -2,38 +2,32 @@
 大部分人的回答是，大概是下面这几个吧？
 
 ```css
-{
-    position: static;
-    position: relative;
-    position: absolute;
-    position: fixed;
+ {
+  position: static;
+  position: relative;
+  position: absolute;
+  position: fixed;
 }
 ```
-
-
 
 额，其实，我们还可以有这 3 个取值：
 
 ```css
-{
-    /* 全局值 */
-    position: inherit;
-    position: initial;
-    position: unset;
+ {
+  /* 全局值 */
+  position: inherit;
+  position: initial;
+  position: unset;
 }
 ```
 
-
-
-没了吗？偶然发现其实还有一个处于实验性的取值，`position:sticky`（[戳我查看MDN解释](https://developer.mozilla.org/zh-CN/docs/Web/CSS/position)）：
+没了吗？偶然发现其实还有一个处于实验性的取值，`position:sticky`（[戳我查看 MDN 解释](https://developer.mozilla.org/zh-CN/docs/Web/CSS/position)）：
 
 ```
 {
     position: sticky;
 }
 ```
-
-
 
 ## 初窥 `position:sticky`
 
@@ -56,8 +50,6 @@ sticky 英文字面意思是**粘，粘贴**，所以姑且称之为粘性定位
 看看 [CANIUSE](http://caniuse.com/#feat=css-sticky) 下的截图：
 
 ![image](./img/d8350772-f3a1-11e6-9ef9-f8cf3df16ffe.png)
-
-
 
 IOS 家族（SAFARI && IOS SAFARI）和 Firefox 很早开始就支持 `position:sticky` 了。而 Chrome53~55 则需要启用实验性网络平台功能才行。其中 webkit 内核的要添加上私有前缀 `-webkit-`。
 
@@ -83,26 +75,24 @@ IOS 家族（SAFARI && IOS SAFARI）和 Firefox 很早开始就支持 `position:
 嗯，看看上面的 CSS 代码，只需要给每个内容区块加上
 
 ```css
-{
-    position: -webkit-sticky;
-    position: sticky;
-    top: 0;
+ {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
 }
 ```
 
-
-
 就可以轻松实现了。
 
-简单描述下生效过程，因为设定的阈值是 `top:0` ，这个值表示当元素距离页面视口（Viewport，也就是fixed定位的参照）顶部距离大于 0px 时，元素以 relative 定位表现，而当元素距离页面视口小于 0px 时，元素表现为 fixed 定位，也就会固定在顶部。
+简单描述下生效过程，因为设定的阈值是 `top:0` ，这个值表示当元素距离页面视口（Viewport，也就是 fixed 定位的参照）顶部距离大于 0px 时，元素以 relative 定位表现，而当元素距离页面视口小于 0px 时，元素表现为 fixed 定位，也就会固定在顶部。
 
 不理解可以再看看下面这两张示意图（top:20px 的情况，取自开源项目[fixed-sticky](https://github.com/filamentgroup/fixed-sticky)）：
 
-#### 距离页面顶部大于20px，表现为 `position:relative`;
+#### 距离页面顶部大于 20px，表现为 `position:relative`;
 
 ![sticky-top-off](./img/7dabb642-f3a7-11e6-8eba-e48cc56642dc.gif)
 
-#### 距离页面顶部小于20px，表现为 `position:fixed`;
+#### 距离页面顶部小于 20px，表现为 `position:fixed`;
 
 ![sticky-top-on](./img/c0cfee66-f3a7-11e6-995b-0b497360ca2b.gif)
 
@@ -112,8 +102,7 @@ IOS 家族（SAFARI && IOS SAFARI）和 Firefox 很早开始就支持 `position:
 
 ![stickynav](./img/9a4707d6-f3a5-11e6-82b2-2e6c5f95a706.gif)
 
-
-<iframe height='265' scrolling='no' title='stickyNav' src='//codepen.io/Chokcoco/embed/OWqpjJ/?height=265&theme-id=0&default-tab=css,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen stickyNav by Chokcoco (@Chokcoco) on CodePen. </iframe>
+<iframe height='265' scrolling='no' title='stickyNav' src='//codepen.io/Chokcoco/embed/OWqpjJ/?height=265&theme-id=0&default-tab=css,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen stickyNav  </iframe>
 
 同理，也可以实现侧边导航栏的超出固定。
 
