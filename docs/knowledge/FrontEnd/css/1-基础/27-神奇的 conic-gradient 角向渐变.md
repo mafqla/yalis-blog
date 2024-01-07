@@ -134,7 +134,6 @@ $totalStops:20;
 
 上图，我们分别指定了 0~30%，30%~70%，70%~100% 三个区间的颜色分别为 `deeppink(深红)`，`yellowgreen(黄绿)` 以及 `teal(青)` ，可以得到如下饼图：
 
-![image](./img/27433045-70cb75b0-5785-11e7-8627-3a6122464d42.png)
 
 当然，上面只是百分比的第一种写法，还有另一种写法也能实现：
 
@@ -208,11 +207,11 @@ $totalStops:20;
 
 我们假设希望不断重复的片段是 0~30° 的一个片段，它的 CSS 代码是 `conic-gradient(deeppink 0 15deg, yellowgreen 0 30deg)` 。
 
-[![image](D:\vscode-project\front-end-notes\docs\knowledge\FrontEnd\css\1-基础\img\27437316-739f5c66-5794-11e7-9547-6a50509cc5f5.png)](https://user-images.githubusercontent.com/8554143/27437316-739f5c66-5794-11e7-9547-6a50509cc5f5.png)
+![image](./img/27437316-739f5c66-5794-11e7-9547-6a50509cc5f5.png)
 
 那么，使用了 `repeating-conic-gradient` 之后，会自动填充满整个区域，CSS 代码如下：
 
-```
+```css
 {
     width: 200px;
     height: 200px;
