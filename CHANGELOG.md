@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.1-alpha](https://github.com/mafqla/yalis-blog/compare/v0.4.0-alpha...v0.4.1-alpha) (2024-01-07)
+
+
+### Bug Fixes
+
+* 修复路径错误 ([3e4d4d7](https://github.com/mafqla/yalis-blog/commit/3e4d4d74a3ba158a803875df0c1594cae5ed8ba5))
+
 ## [0.4.0-alpha](https://github.com/mafqla/yalis-blog/compare/v0.3.0-alpha...v0.4.0-alpha) (2024-01-07)
 
 
