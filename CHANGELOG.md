@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.0-alpha](https://github.com/mafqla/yalis-blog/compare/v0.3.0-alpha...v0.4.0-alpha) (2024-01-07)
+
+
+### Features
+
+* 每日五篇css ([c2f23cc](https://github.com/mafqla/yalis-blog/commit/c2f23cc872625abefc288d62a995fca7f59b76c9))
+
 ## [0.3.0-alpha](https://github.com/mafqla/yalis-blog/compare/v0.2.1-alpha...v0.3.0-alpha) (2024-01-06)
 
 
