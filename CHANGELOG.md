@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.5.0-alpha](https://github.com/mafqla/yalis-blog/compare/v0.4.1-alpha...v0.5.0-alpha) (2024-01-08)
+
+
+### Features
+
+* 每日5篇 ([91e791b](https://github.com/mafqla/yalis-blog/commit/91e791be63cbd3adeb982c553fadeee673299f7b))
+
 ## [0.4.1-alpha](https://github.com/mafqla/yalis-blog/compare/v0.4.0-alpha...v0.4.1-alpha) (2024-01-07)
 
 
