@@ -9,7 +9,7 @@ tags:
 
 组件允许我们将 UI 划分为独立的、可重用的部分来思考。组件在应用程序中常常被组织成层层嵌套的树状结构：
 
-![img](../../../../public/images/components.7fbb3771.png)
+![img](../img/components.7fbb3771.png)
 
 这和我们嵌套 HTML 元素的方式类似，Vue 实现了自己的组件数据模型，使我们可以在每个组件内封装自定义内容与逻辑。
 
@@ -491,7 +491,7 @@ tags:
 
   - 子组件不需要知道 inject 的 property 来自哪里
 
-![img](../../../../public/images/provide-inject.3e0505e4.png)
+![img](../img/provide-inject.3e0505e4.png)
 
 ###  11.6.2 Provide(提供)和Inject(注入)基本使用
 
@@ -680,7 +680,7 @@ id2-->id3["HomeContent.vue"]
 
 ###  11.7.1 插槽的基本使用
 
-![img](../../../../public/images/slots.dbdaf1e8.png)
+![img](../img/slots.dbdaf1e8.png)
 
 `示例：`
 
@@ -861,7 +861,7 @@ id2-->id3["HomeContent.vue"]
 
   - 子模板里的所有内容都是在子作用域中编译的； 
 
-- ![image-20220724145056053](../../../../public/images/image-20220724145056053.png)
+- ![image-20220724145056053](../img/image-20220724145056053.png)
 
 
 
@@ -1351,7 +1351,7 @@ const AsyncComp = defineAsyncComponent({
 
 **生命周期的流程**
 
-![image-20220724211234915](../../../../public/images/image-20220724211234915.png)
+![image-20220724211234915](../img/image-20220724211234915.png)
 
 
 

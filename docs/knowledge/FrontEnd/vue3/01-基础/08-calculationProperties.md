@@ -31,7 +31,7 @@ tags:
 
 `实现思路`：
 
-<img src="../../../../public/images/image-20220705212114128.png" alt="image-20220705212114128" style="zoom:50%;" />
+<img src="../img/image-20220705212114128.png" alt="image-20220705212114128" style="zoom:50%;" />
 
 ```vue
   <div id="app"></div>
@@ -176,7 +176,7 @@ tags:
 
 `例：`
 
-<img src="../../../../public/images/image-20220705214057909.png" alt="image-20220705214057909" style="zoom:80%;" />
+<img src="../img/image-20220705214057909.png" alt="image-20220705214057909" style="zoom:80%;" />
 
 
 

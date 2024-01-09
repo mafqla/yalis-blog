@@ -33,7 +33,7 @@ tags:
 
 **示例**
 
-![image-20220626195832801](../../../../public/images/image-20220626195832801.png)
+![image-20220626195832801](../img/image-20220626195832801.png)
 
 
 
@@ -92,7 +92,7 @@ tags:
 
 **示例**
 
-![image-20220626200100849](../../../../public/images/image-20220626200100849.png)
+![image-20220626200100849](../img/image-20220626200100849.png)
 
 ```html
 <!DOCTYPE html>
@@ -177,7 +177,7 @@ tags:
 
 **示例**
 
-![image-20220626200120922](../../../../public/images/image-20220626200120922.png)
+![image-20220626200120922](../img/image-20220626200120922.png)
 
 ```html
 <!DOCTYPE html>
@@ -227,7 +227,7 @@ tags:
 
 **示例**
 
-<img src="../../../../public/images/image-20220626200139071.png" alt="image-20220626200139071" style="zoom:50%;" />
+<img src="../img/image-20220626200139071.png" alt="image-20220626200139071" style="zoom:50%;" />
 
 ```html
 <!DOCTYPE html>
@@ -297,7 +297,7 @@ tags:
 
 **示例**
 
-![image-20220626200214417](../../../../public/images/image-20220626200214417.png)
+![image-20220626200214417](../img/image-20220626200214417.png)
 
 ```html
 <!DOCTYPE html>
@@ -354,7 +354,7 @@ tags:
 
 **示例**
 
-<img src="../../../../public/images/image-20220626200326461.png" alt="image-20220626200326461" style="zoom:50%;" />
+<img src="../img/image-20220626200326461.png" alt="image-20220626200326461" style="zoom:50%;" />
 
 ```html
 <!DOCTYPE html>
@@ -399,7 +399,7 @@ tags:
 
 **示例**
 
-![image-20220626200418235](../../../../public/images/image-20220626200418235.png)
+![image-20220626200418235](../img/image-20220626200418235.png)
 
 ```html
 <!DOCTYPE html>
@@ -473,7 +473,7 @@ tags:
 
 **示例**
 
-<img src="../../../../public/images/image-20220626200535407.png" alt="image-20220626200535407" style="zoom:50%;" />
+<img src="../img/image-20220626200535407.png" alt="image-20220626200535407" style="zoom:50%;" />
 
 ```html
 <!DOCTYPE html>
@@ -546,7 +546,7 @@ tags:
 
 **示例**
 
-<img src="../../../../public/images/image-20220626200633893.png" alt="image-20220626200633893" style="zoom:50%;" />
+<img src="../img/image-20220626200633893.png" alt="image-20220626200633893" style="zoom:50%;" />
 
 ```html
 <!DOCTYPE html>
@@ -611,7 +611,7 @@ tags:
 
 **示例**
 
-<img src="../../../../public/images/image-20220626200743492.png" alt="image-20220626200743492" style="zoom:50%;" />
+<img src="../img/image-20220626200743492.png" alt="image-20220626200743492" style="zoom:50%;" />
 
 ```html
 <!DOCTYPE html>

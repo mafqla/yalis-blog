@@ -30,11 +30,11 @@ tags:
 
 `示例：`
 
-<img src="../../../../public/images/image-20220702204635280.png" alt="image-20220702204635280"  />
+<img src="../img/image-20220702204635280.png" alt="image-20220702204635280"  />
 
-<img src="../../../../public/images/image-20220702205030136.png" alt="image-20220702205030136"  />
+<img src="../img/image-20220702205030136.png" alt="image-20220702205030136"  />
 
-<img src="../../../../public/images/image-20220702205059073.png" alt="image-20220702205059073" />
+<img src="../img/image-20220702205059073.png" alt="image-20220702205059073" />
 
 ```html
 <!DOCTYPE html>

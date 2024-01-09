@@ -98,7 +98,7 @@ Mustache语法(双大括号)的文本插值
 
 **示例：**
 
-![image-20220621231552028](../../../../public/images/image-20220621231552028.png)
+![image-20220621231552028](../img/image-20220621231552028.png)
 
 ```html
 <!DOCTYPE html>
@@ -151,11 +151,11 @@ Mustache语法(双大括号)的文本插值
 
 - 用于更新元素的 textContent：
 
-  ![image-20220621230315105](../../../../public/images/image-20220621230315105.png)
+  ![image-20220621230315105](../img/image-20220621230315105.png)
 
 **示例**：
 
-![image-20220621231158429](../../../../public/images/image-20220621231158429.png)
+![image-20220621231158429](../img/image-20220621231158429.png)
 
 ```html
 <!DOCTYPE html>
@@ -205,7 +205,7 @@ Mustache语法(双大括号)的文本插值
 
 **示例：**
 
-![image-20220621231045696](../../../../public/images/image-20220621231045696.png)
+![image-20220621231045696](../img/image-20220621231045696.png)
 
 ```html
 <!DOCTYPE html>
@@ -253,7 +253,7 @@ Mustache语法(双大括号)的文本插值
 
 **示例:**
 
-![image-20220621231011599](../../../../public/images/image-20220621231011599.png)
+![image-20220621231011599](../img/image-20220621231011599.png)
 
 ```html
 <!DOCTYPE html>
@@ -301,7 +301,7 @@ Mustache语法(双大括号)的文本插值
 
 **示例:**
 
-![image-20220621232207584](../../../../public/images/image-20220621232207584.png)
+![image-20220621232207584](../img/image-20220621232207584.png)
 
 ```html
 <!DOCTYPE html>

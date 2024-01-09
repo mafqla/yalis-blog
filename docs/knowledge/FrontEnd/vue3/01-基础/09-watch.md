@@ -23,7 +23,7 @@ tags:
 
 `示例:`
 
-<img src="../../../../public/images/image-20220706145633145.png" alt="image-20220706145633145" style="zoom: 80%;" />
+<img src="../img/image-20220706145633145.png" alt="image-20220706145633145" style="zoom: 80%;" />
 
 ```vue
 <div id="app"></div>
