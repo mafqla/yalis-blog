@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.6.0-alpha](https://github.com/mafqla/yalis-blog/compare/v0.5.0-alpha...v0.6.0-alpha) (2024-01-09)
+
+
+### Features
+
+* 更换图片位置 ([7eccf70](https://github.com/mafqla/yalis-blog/commit/7eccf70505c0d0cb836ebb4f4d3b25b4bd8b12c4))
+
 ## [0.5.0-alpha](https://github.com/mafqla/yalis-blog/compare/v0.4.1-alpha...v0.5.0-alpha) (2024-01-08)
 
 
