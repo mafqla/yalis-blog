@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.12.0-alpha](https://github.com/mafqla/yalis-blog/compare/v0.11.0-alpha...v0.12.0-alpha) (2024-01-15)
+
+
+### Features
+
+* add css ([6f02ce2](https://github.com/mafqla/yalis-blog/commit/6f02ce23fc5cbd95647e697e901e4e816c978776))
+
 ## [0.11.0-alpha](https://github.com/mafqla/yalis-blog/compare/v0.10.0-alpha...v0.11.0-alpha) (2024-01-14)
 
 
