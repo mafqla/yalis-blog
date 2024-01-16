@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.14.0-alpha](https://github.com/mafqla/yalis-blog/compare/v0.13.0-alpha...v0.14.0-alpha) (2024-01-16)
+
+
+### Features
+
+* 改为本地搜索 ([5ee33bb](https://github.com/mafqla/yalis-blog/commit/5ee33bba958709a1c93646bea1127aa288f342dc))
+
 ## [0.13.0-alpha](https://github.com/mafqla/yalis-blog/compare/v0.12.0-alpha...v0.13.0-alpha) (2024-01-16)
 
 
