@@ -27,10 +27,13 @@ export const themeConfig: DefaultTheme.Config = {
     text: '不妥之处，敬请雅正'
   },
   // 全文搜索配置
-  algolia: {
-    appId: '94CK9VI16P',
-    apiKey: '92ab6af8da0e0c4e59b6ee77e72e074b',
-    indexName: 'yalisky'
+  // algolia: {
+  //   appId: '94CK9VI16P',
+  //   apiKey: '92ab6af8da0e0c4e59b6ee77e72e074b',
+  //   indexName: 'yalisky'
+  // },
+  search: {
+    provider: 'local'
   },
   // 导航栏右侧社交链接配置
 

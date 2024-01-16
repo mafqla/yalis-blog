@@ -6,6 +6,8 @@ import { ArcoResolver } from 'unplugin-vue-components/resolvers'
 
 export default defineConfig({
   server: {
+    host: '0.0.0.0',
+    port: 4002,
     proxy: {
       '/douyin': {
         target: 'https://www.douyin.com',
@@ -34,7 +36,7 @@ export default defineConfig({
           resolveIcons: true
         })
       ]
-    }),
+    })
     // visualizer({
     //   filename: './node_modules/.cache/visualizer/stats.html',
     //   open: true,

@@ -3,7 +3,7 @@
 </template>
 
 <script lang="ts" setup>
-import { onMounted, onBeforeUnmount, defineProps } from 'vue'
+import { onMounted, onBeforeUnmount } from 'vue'
 import { WordCloud } from '@antv/g2plot'
 
 // 定义属性
