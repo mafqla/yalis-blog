@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.18.0-alpha](https://github.com/mafqla/yalis-blog/compare/v0.17.0-alpha...v0.18.0-alpha) (2024-01-17)
+
+
+### Features
+
+* 移除blogs图片 ([ed2ed61](https://github.com/mafqla/yalis-blog/commit/ed2ed6151906e2292306db7910a11fc1f160cd95))
+
 ## [0.17.0-alpha](https://github.com/mafqla/yalis-blog/compare/v0.16.0-alpha...v0.17.0-alpha) (2024-01-17)
 
 
