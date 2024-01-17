@@ -27,4 +27,4 @@ jobs:
           GITHUB_TOKEN: '${{ secrets.RELEASE_TOKEN }}'
           MERGE_LABELS: ''
           MERGE_FILTER_AUTHOR: 'mafqla'
-
+          MERGE_DELETE_BRANCH: 'true'
