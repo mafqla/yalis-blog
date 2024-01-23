@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.25.0-alpha](https://github.com/mafqla/yalis-blog/compare/v0.24.0-alpha...v0.25.0-alpha) (2024-01-23)
+
+
+### Features
+
+* palu ([29ebe0a](https://github.com/mafqla/yalis-blog/commit/29ebe0a4656aa300f49af81781af6fe4a87e3b3b))
+
 ## [0.24.0-alpha](https://github.com/mafqla/yalis-blog/compare/v0.23.0-alpha...v0.24.0-alpha) (2024-01-23)
 
 
