@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.27.0-alpha](https://github.com/mafqla/yalis-blog/compare/v0.26.0-alpha...v0.27.0-alpha) (2024-01-23)
+
+
+### Features
+
+* add baidu api ([8d1dbe3](https://github.com/mafqla/yalis-blog/commit/8d1dbe3a1fe1ee200f865f07be7ac43dbd31178f))
+
 ## [0.26.0-alpha](https://github.com/mafqla/yalis-blog/compare/v0.25.0-alpha...v0.26.0-alpha) (2024-01-23)
 
 
