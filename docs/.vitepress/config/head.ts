@@ -23,5 +23,11 @@ export const head: HeadConfig[] = [
   ['meta', { property: 'og:site', content: metaData.site }],
   ['meta', { property: 'og:site_name', content: metaData.title }],
   ['meta', { property: 'og:image', content: metaData.image }],
-
+  [
+    'script',{},
+    `var _hmt = _hmt || [];(function() {var hm = document.createElement("script");
+      hm.src ="https://hm.baidu.com/hm.js?58bee9ede7d73403e7e9d3f215d8857e";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);})();`
+  ]
 ]
