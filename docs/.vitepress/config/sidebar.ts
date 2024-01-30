@@ -201,7 +201,7 @@ function getItemsWithoutGroup(path: string) {
   })
 
   // 添加序号
-  // addOrderNumber(items)
+  addOrderNumber(items)
   return items
 }
 

@@ -86,6 +86,14 @@
         >{{ date }}
       </time>
     </div>
+    <div class="meta-item">
+      <span class="meta-icon pv"></span>
+      <span class="meta-content">阅读时间:{{ readTime }}分钟</span>
+    </div>
+    <div class="meta-item">
+      <span class="meta-icon pv"></span>
+      <span class="meta-content">字数:{{ words }}字</span>
+    </div>
     <div class="meta-item" v-if="showViewCount">
       <span class="meta-icon pv">
         <svg
@@ -179,12 +187,14 @@ const props = defineProps({
   showCategory: {
     type: Boolean,
     default: true
-  }
+  },
+  readTime: [String, Number],
+  words: [String, Number]
 })
 
 // 初始化文章元数据信息
 const { theme, page } = useData()
-
+// console.log(props)
 const data = reactive({
   isOriginal: props.article?.isOriginal ?? true,
   author: props.article?.author ?? theme.value.articleMetadataConfig.author,

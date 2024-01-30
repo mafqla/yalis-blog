@@ -1,4 +1,5 @@
 import type { MarkdownOptions } from 'vitepress'
+import { getReadingTime } from '../theme/utils/pageInfo'
 
 export const markdown: MarkdownOptions = {
   // Shiki主题, 所有主题参见: https://github.com/shikijs/shiki/blob/main/docs/themes.md
@@ -12,8 +13,14 @@ export const markdown: MarkdownOptions = {
   config: md => {
     md.renderer.rules.heading_close = (tokens, idx, options, env, slf) => {
       let htmlResult = slf.renderToken(tokens, idx, options)
-      if (tokens[idx].tag === 'h1')
-        htmlResult += `\n<ClientOnly><ArticleMetadata v-if="($frontmatter?.aside ?? true) && ($frontmatter?.showArticleMetadata ?? true)" :article="$frontmatter" /></ClientOnly>`
+
+      if (tokens[idx].tag === 'h1') {
+        const content = env.content
+        // console.log('content', content)
+        const { readTime, words } = getReadingTime(content)
+        // console.log('readTime', readTime, 'words', words)
+        htmlResult += `\n<ClientOnly><ArticleMetadata v-if="($frontmatter?.aside ?? true) && ($frontmatter?.showArticleMetadata ?? true)" :article="$frontmatter" :readTime="${readTime}" :words="${words}"  /></ClientOnly>`
+      }
       return htmlResult
     }
   },

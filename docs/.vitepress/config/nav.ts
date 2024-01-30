@@ -41,7 +41,7 @@ export const nav: DefaultTheme.Config['nav'] = [
       },
       {
         text: 'TypeScript',
-        link: '/knowledge/FrontEnd/typescript/01-get-started-quickly',
+        link: '/knowledge/FrontEnd/typescript/1-get-started-quickly',
         activeMatch: '/knowledge/FrontEnd/typescript/'
       },
       {
