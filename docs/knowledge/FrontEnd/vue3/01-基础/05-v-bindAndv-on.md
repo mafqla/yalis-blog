@@ -5,7 +5,7 @@ tags:
     - vue3
 ---
 
-# 5. v-bind和v-on
+## 5. v-bind和v-on
 
 绑定属性我们使用v-bind：
 

@@ -1,37 +1,58 @@
-import type { PageInfo } from '../types'
+import type { PageInfo, IWordCountResult } from '../types'
+import emojiPattern from './emojiPattern'
 
-export function getWords(content: string): string[] {
-  return content.match(/[\w\d\s,.\u00C0-\u024F\u0400-\u04FF]+/gu) || []
+const cjkPattern =
+  '\\p{Script=Han}|\\p{Script=Kana}|\\p{Script=Hira}|\\p{Script=Hangul}'
+const PatternString = {
+  emoji: emojiPattern,
+  cjk: cjkPattern,
+  word: `([a-zA-Z\\u4E00-\\u9FFF]+)(-?([a-zA-Z\\u4E00-\\u9FFF]+)?)?`, // 词
+  number: '(?:[\\p{Decimal_Number}](?:\\.?[\\p{Decimal_Number}])+)'
 }
 
-export function getChinese(content: string): string[] {
-  return content.match(/[\u4E00-\u9FD5\u4F7F\u7528]+/gu) || []
+const wordPattern = new RegExp(
+  `${PatternString.emoji}|${PatternString.number}|${PatternString.word}|${PatternString.cjk}`,
+  'gu'
+)
+export const countWords = (text: string) => {
+  return text.match(wordPattern)?.length ?? 0
 }
 
-export function getEnWordCount(content: string): number {
-  return getWords(content).filter(word => word.trim() !== '').length
+const characterPattern = new RegExp(`${PatternString.emoji}|[\\s\\S]`, 'gu')
+
+const characterPatternWithSpace = new RegExp(
+  `${PatternString.emoji}|[\\s\\S]`,
+  'gu'
+)
+
+export const countLines = (text: string) => {
+  return text.split('\n').length ?? 0
 }
 
-export function getCnWordCount(content: string): number {
-  return getChinese(content).length
+export const countCharacters = (text: string, withSpace: boolean = false) => {
+  return (
+    text.match(withSpace ? characterPatternWithSpace : characterPattern)
+      ?.length ?? 0
+  )
 }
 
-export function getWordNumber(content: string): number {
-  return getEnWordCount(content) + getCnWordCount(content)
+export const count = (text: string): IWordCountResult => {
+  return {
+    words: countWords(text),
+    lines: countLines(text),
+    characters: countCharacters(text),
+    charactersWithSpaces: countCharacters(text, true)
+  }
 }
 
 export function getReadingTime(
   content: string,
-  cnWordPerMinute: number = 350,
-  enWordPerMinute: number = 160
+  wordPerMinute: number = 200
 ): PageInfo {
-  const count = getWordNumber(content || '')
+  const count = countWords(content || '')
   const words = count >= 1000 ? `${Math.round(count / 100) / 10}k` : count
 
-  const enWord = getEnWordCount(content)
-  const cnWord = getCnWordCount(content)
-
-  const readingTime = cnWord / cnWordPerMinute + enWord / enWordPerMinute
+  const readingTime = count / wordPerMinute
   const readTime = Math.max(1, Math.round(readingTime))
 
   return {

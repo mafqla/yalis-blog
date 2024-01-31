@@ -86,11 +86,11 @@
         >{{ date }}
       </time>
     </div>
-    <div class="meta-item">
+    <div class="meta-item" v-if="readTime != null">
       <span class="meta-icon pv"></span>
       <span class="meta-content">阅读时间:{{ readTime }}分钟</span>
     </div>
-    <div class="meta-item">
+    <div class="meta-item" v-if="words != null">
       <span class="meta-icon pv"></span>
       <span class="meta-content">字数:{{ words }}字</span>
     </div>

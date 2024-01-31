@@ -200,9 +200,16 @@ function getItemsWithoutGroup(path: string) {
     })
   })
 
+  const groups: DefaultTheme.SidebarItem[] = []
+
+  groups.push({
+    text: '',
+    items: items,
+    collapsed: false
+  })
   // 添加序号
-  addOrderNumber(items)
-  return items
+  addOrderNumber(groups)
+  return groups
 }
 
 /**

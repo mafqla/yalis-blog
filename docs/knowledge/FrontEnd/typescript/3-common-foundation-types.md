@@ -5,7 +5,7 @@ tags:
   - typescript
 ---
 
-# 3. TypeScript 常用基础类型
+## 3 TypeScript 常用基础类型
 
 可以将 TS 中的常用基础类型分为两类
 

@@ -5,7 +5,7 @@ tags:
     - vue3
 ---
 
-# 4. vue基本指令
+## 4. vue基本指令
 ## 4.1 Mustache 语法
 
 

@@ -5,7 +5,7 @@ tags:
     - vue3
 ---
 
-# 2. @vue/cli脚手架
+## 2. @vue/cli脚手架
 
 ## 2.0_@vue/cli 脚手架介绍
 

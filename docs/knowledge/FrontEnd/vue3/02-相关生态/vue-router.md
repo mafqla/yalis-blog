@@ -5,7 +5,7 @@ tags:
     - vue-router
 ---
 
-# 路由介绍
+## 路由介绍
 
 ## 1.1  什么是前端路由
 
@@ -137,7 +137,7 @@ tags:
 
 
 
-# 基础
+## 基础
 
 ## 2.1  [Vue Router](https://router.vuejs.org/zh/) 是什么？
 

@@ -16,10 +16,14 @@ export const markdown: MarkdownOptions = {
 
       if (tokens[idx].tag === 'h1') {
         const content = env.content
-        // console.log('content', content)
+        // const resultWithoutSymbols = content.replace(/[^\w\s{}]/g, '')
         const { readTime, words } = getReadingTime(content)
+        // const readTime = 0
+        // const words = 0
         // console.log('readTime', readTime, 'words', words)
-        htmlResult += `\n<ClientOnly><ArticleMetadata v-if="($frontmatter?.aside ?? true) && ($frontmatter?.showArticleMetadata ?? true)" :article="$frontmatter" :readTime="${readTime}" :words="${words}"  /></ClientOnly>`
+        htmlResult += `\n<ClientOnly><ArticleMetadata v-if="($frontmatter?.aside ?? true) 
+        && ($frontmatter?.showArticleMetadata ?? true)" :article="$frontmatter"
+        :readTime="${readTime}" :words="${words}"  /></ClientOnly>`
       }
       return htmlResult
     }
