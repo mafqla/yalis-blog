@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.39.0-alpha](https://github.com/mafqla/yalis-blog/compare/v0.38.0-alpha...v0.39.0-alpha) (2024-02-04)
+
+
+### Features
+
+* new ([6ff4454](https://github.com/mafqla/yalis-blog/commit/6ff445435802bcfe6f0ac1684454b54d70363bb8))
+
 ## [0.38.0-alpha](https://github.com/mafqla/yalis-blog/compare/v0.37.0-alpha...v0.38.0-alpha) (2024-02-04)
 
 
