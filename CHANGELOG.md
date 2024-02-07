@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.42.0-alpha](https://github.com/mafqla/yalis-blog/compare/v0.41.0-alpha...v0.42.0-alpha) (2024-02-07)
+
+
+### Features
+
+* new ([edac605](https://github.com/mafqla/yalis-blog/commit/edac6051f00fd1da8b4674db1dae534191c8dd9b))
+
 ## [0.41.0-alpha](https://github.com/mafqla/yalis-blog/compare/v0.40.0-alpha...v0.41.0-alpha) (2024-02-06)
 
 
