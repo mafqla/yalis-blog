@@ -1,0 +1,13 @@
+import{_ as n,c as h,o as t,V as a,m as s,a as i}from"./chunks/framework.YbGCv4uC.js";const l="/assets/103450843-0a65aa00-4cf7-11eb-8280-9a52523a4550.AxGmwyCk.gif",k="/assets/103450857-3c770c00-4cf7-11eb-8371-0f9ca9da1592.p-cyyjPL.png",e="/assets/103453910-a7393f00-4d19-11eb-9809-c852d5904970.C7yVUHgd.gif",q=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"knowledge/FrontEnd/css/1-基础/56-使用纯 CSS 实现滚动阴影效果.md","filePath":"knowledge/FrontEnd/css/1-基础/56-使用纯 CSS 实现滚动阴影效果.md","lastUpdated":1708838094000}'),p={name:"knowledge/FrontEnd/css/1-基础/56-使用纯 CSS 实现滚动阴影效果.md"},r=a("",12),d=s("iframe",{height:"300",style:{width:"100%"},scrolling:"no",title:"bg-attachment Demo",src:"https://codepen.io/mafqla/embed/qBvXvOY?default-tab=html%2Cresult&editable=true&theme-id=light",frameborder:"no",loading:"lazy",allowtransparency:"true",allowfullscreen:"true"},`
+  See the Pen <a href="https://codepen.io/mafqla/pen/qBvXvOY">
+  bg-attachment Demo</a> by mafqla (<a href="https://codepen.io/mafqla">@mafqla</a>)
+  on <a href="https://codepen.io">CodePen</a>.
+`,-1),B=a("",13),F=s("iframe",{height:"300",style:{width:"100%"},scrolling:"no",title:"Pure CSS Scroll shadow",src:"https://codepen.io/mafqla/embed/wvOqOMv?default-tab=html%2Cresult&editable=true&theme-id=light",frameborder:"no",loading:"lazy",allowtransparency:"true",allowfullscreen:"true"},`
+  See the Pen <a href="https://codepen.io/mafqla/pen/wvOqOMv">
+  Pure CSS Scroll shadow</a> by mafqla (<a href="https://codepen.io/mafqla">@mafqla</a>)
+  on <a href="https://codepen.io">CodePen</a>.
+`,-1),g=s("p",null,[i("如文章开头所示，这技巧也是可以直接运用在 "),s("code",null,"table"),i(" 里面：")],-1),D=s("iframe",{height:"300",style:{width:"100%"},scrolling:"no",title:"Pure CSS Table scroll shadow",src:"https://codepen.io/mafqla/embed/NWJvJxq?default-tab=html%2Cresult&editable=true&theme-id=light",frameborder:"no",loading:"lazy",allowtransparency:"true",allowfullscreen:"true"},`
+  See the Pen <a href="https://codepen.io/mafqla/pen/NWJvJxq">
+  Pure CSS Table scroll shadow</a> by mafqla (<a href="https://codepen.io/mafqla">@mafqla</a>)
+  on <a href="https://codepen.io">CodePen</a>.
+`,-1),c=s("h2",{id:"一些问题",tabindex:"-1"},[i("一些问题 "),s("a",{class:"header-anchor",href:"#一些问题","aria-label":'Permalink to "一些问题"'},"​")],-1),o=s("h3",{id:"层叠顺序",tabindex:"-1"},[i("层叠顺序 "),s("a",{class:"header-anchor",href:"#层叠顺序","aria-label":'Permalink to "层叠顺序"'},"​")],-1),y=s("p",null,[i("当然，在上述的过程中，其实一直有个问题，就是由于是使用背景 "),s("code",null,"background"),i(" 模拟的阴影，其实最终的效果，内容是在阴影（背景之上的），但是实际效果其实没有很大的差别，如果能忍受这一点，这个方案是完全可用的。")],-1),A=[r,d,B,F,g,D,c,o,y];function C(m,u,b,_,f,E){return t(),h("div",null,A)}const v=n(p,[["render",C]]);export{q as __pageData,v as default};
