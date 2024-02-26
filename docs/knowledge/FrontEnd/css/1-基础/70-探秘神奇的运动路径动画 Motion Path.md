@@ -179,7 +179,7 @@ div {
 
 在 SVG 的 Path 中，我们取其中一种绘制曲线的方法 -- 贝塞尔曲线，譬如下述这条 path，其中的 path 为 `d="M 10 80 C 80 10, 130 10, 190 80 S 300 150, 360 80"`：
 
-```svg
+```html
 <svg width="400" height="160" xmlns="http://www.w3.org/2000/svg">
   <path d="M 10 80 C 80 10, 130 10, 190 80 S 300 150, 360 80" stroke="black" fill="transparent"/>
 </svg>
