@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.52.0-alpha](https://github.com/mafqla/yalis-blog/compare/v0.51.0-alpha...v0.52.0-alpha) (2024-02-26)
+
+
+### Features
+
+* new ([e869a62](https://github.com/mafqla/yalis-blog/commit/e869a620de5c62d0d8d0f91aee51171da1f56f0b))
+* 新增订阅页面 ([042645d](https://github.com/mafqla/yalis-blog/commit/042645d4219d2afb539bd51c6c02e47eda623f1c))
+
 ## [0.51.0-alpha](https://github.com/mafqla/yalis-blog/compare/v0.50.0-alpha...v0.51.0-alpha) (2024-02-25)
 
 
