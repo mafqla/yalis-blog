@@ -1,6 +1,6 @@
 本文主要想探讨一下，使用 CSS 能否比较好的实现一些**烟雾效果**。像是这样：
 
-[![img](D:\vscode-project\front-end-notes\docs\knowledge\FrontEnd\css\1-基础\img\147092625-87c88cc2-d99f-49cc-9658-e8f739d3ea67.png)](https://user-images.githubusercontent.com/8554143/147092625-87c88cc2-d99f-49cc-9658-e8f739d3ea67.png)
+[![img](./img/147092625-87c88cc2-d99f-49cc-9658-e8f739d3ea67.png)](https://user-images.githubusercontent.com/8554143/147092625-87c88cc2-d99f-49cc-9658-e8f739d3ea67.png)
 
 仔细观察烟雾效果，有两个比较重要的特点：
 
@@ -15,7 +15,7 @@
 
 我们首先来看这样一个效果：
 
-[![img](D:\vscode-project\front-end-notes\docs\knowledge\FrontEnd\css\1-基础\img\147093514-426ab79c-ba3b-43f9-8f14-7e3a19946735.gif)](https://user-images.githubusercontent.com/8554143/147093514-426ab79c-ba3b-43f9-8f14-7e3a19946735.gif)
+[![img](./img/147093514-426ab79c-ba3b-43f9-8f14-7e3a19946735.gif)](https://user-images.githubusercontent.com/8554143/147093514-426ab79c-ba3b-43f9-8f14-7e3a19946735.gif)
 
 假设，我们有这样一个字符：
 
@@ -41,7 +41,7 @@ span {
 
 看看效果：
 
-[![img](D:\vscode-project\front-end-notes\docs\knowledge\FrontEnd\css\1-基础\img\147094578-0eeff445-7bf0-4874-9576-2c0a5c8880db.gif)](https://user-images.githubusercontent.com/8554143/147094578-0eeff445-7bf0-4874-9576-2c0a5c8880db.gif)
+[![img](./img/147094578-0eeff445-7bf0-4874-9576-2c0a5c8880db.gif)](https://user-images.githubusercontent.com/8554143/147094578-0eeff445-7bf0-4874-9576-2c0a5c8880db.gif)
 
 在上述的基础上，我们可以加上位移、旋转、缩放，稍微改造一下上述代码，添加一些 `transform` 变换：
 
@@ -64,7 +64,7 @@ span {
 
 就可以得到如下效果：
 
-[![img](D:\vscode-project\front-end-notes\docs\knowledge\FrontEnd\css\1-基础\img\147095187-30d05098-3855-4277-bc39-d0f57c0cac47.gif)](https://user-images.githubusercontent.com/8554143/147095187-30d05098-3855-4277-bc39-d0f57c0cac47.gif)
+[![img](./img/147095187-30d05098-3855-4277-bc39-d0f57c0cac47.gif)](https://user-images.githubusercontent.com/8554143/147095187-30d05098-3855-4277-bc39-d0f57c0cac47.gif)
 
 叠加了 `transform` 之后，就很有一个字被吹跑，变成烟雾的感觉。在此基础之上，我们只需要将多个字放在一起，利用 `animation-delay` 顺序控制每个字触发动画效果，即可得到上述的完整烟雾效果。
 
@@ -120,7 +120,7 @@ div {
 
 得到这样几个带渐变色字：
 
-[![img](D:\vscode-project\front-end-notes\docs\knowledge\FrontEnd\css\1-基础\img\147097433-4a2520c8-115f-4d56-b01d-4145a9451c71.png)](https://user-images.githubusercontent.com/8554143/147097433-4a2520c8-115f-4d56-b01d-4145a9451c71.png)
+[![img](./img/147097433-4a2520c8-115f-4d56-b01d-4145a9451c71.png)](https://user-images.githubusercontent.com/8554143/147097433-4a2520c8-115f-4d56-b01d-4145a9451c71.png)
 
 我们利用 `<feturbulence>` 滤镜简单处理一下：
 
@@ -154,7 +154,7 @@ div {
 
 我们的字体就被 `<feturbulence>` 滤镜 赋予了一种流体的感觉：
 
-[![img](D:\vscode-project\front-end-notes\docs\knowledge\FrontEnd\css\1-基础\img\147097680-f6345c73-1ae2-4c4e-9902-48028ebb8647.png)](https://user-images.githubusercontent.com/8554143/147097680-f6345c73-1ae2-4c4e-9902-48028ebb8647.png)
+[![img](./img/147097680-f6345c73-1ae2-4c4e-9902-48028ebb8647.png)](https://user-images.githubusercontent.com/8554143/147097680-f6345c73-1ae2-4c4e-9902-48028ebb8647.png)
 
 这个效果可以说和烟雾效果基本没什么关系，不过只需要再添加一个模糊滤镜，神奇的事情就发生了：
 
@@ -171,7 +171,7 @@ div {
 
 整个效果就瞬间**烟雾化**了很多：
 
-[![img](D:\vscode-project\front-end-notes\docs\knowledge\FrontEnd\css\1-基础\img\147097811-da32d8d5-350f-46a2-a472-b4bd5fe2b3d9.png)](https://user-images.githubusercontent.com/8554143/147097811-da32d8d5-350f-46a2-a472-b4bd5fe2b3d9.png)
+[![img](./img/147097811-da32d8d5-350f-46a2-a472-b4bd5fe2b3d9.png)](https://user-images.githubusercontent.com/8554143/147097811-da32d8d5-350f-46a2-a472-b4bd5fe2b3d9.png)
 
 好，给它添加上循环的动画效果，简单的借助 JavaScript 处理一下：
 
