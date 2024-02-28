@@ -85,5 +85,12 @@ const goToLink = (link: string) => {
 
 :deep(.arco-list-item-meta) {
   height: 100px;
+
+  .arco-list-item-meta-title {
+    color: var(--color-text-t1);
+  }
+  .arco-list-item-meta-description {
+    color: var(--color-text-t3);
+  }
 }
 </style>

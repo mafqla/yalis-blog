@@ -143,7 +143,16 @@ ul {
 a:hover {
   text-decoration: none;
 }
+//宽度小于1200px隐藏
+@media (max-width: 1200px) {
+  .hot-item {
+    display: none;
+  }
+}
 .hot-item {
+  width: 400px;
+  padding-top: 100px;
+
   .hot-item-main {
     background-color: var(--color-bg-b1);
 

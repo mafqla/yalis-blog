@@ -1,11 +1,14 @@
 <script setup lang="ts">
 import BlogList from '../components/blogs/BlogList.vue'
-import {} from 'vue'
+import Douyin from '../components/hot/douyin.vue'
 </script>
 <template>
   <div class="index">
     <div class="content-wrapper">
-      <div class="blog-list-wrapper"><blog-list /></div>
+      <div class="blog-list-wrapper">
+        <blog-list />
+      </div>
+      <Douyin />
     </div>
   </div>
 </template>
@@ -18,8 +21,6 @@ import {} from 'vue'
 }
 .content-wrapper {
   display: flex;
-  align-items: flex-start;
-  justify-content: center;
 }
 
 .blog-list-wrapper {

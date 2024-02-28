@@ -28,6 +28,9 @@ const updateHeight = () => {
       class="fw-iframe"
       scrolling="no"
       frameborder="0"
+      loading="lazy"
+      allowtransparency="true"
+      allowfullscreen="true"
     />
   </div>
 </template>
