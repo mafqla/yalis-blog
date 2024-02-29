@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.54.1-alpha](https://github.com/mafqla/yalis-blog/compare/v0.54.0-alpha...v0.54.1-alpha) (2024-02-28)
+
+
+### Bug Fixes
+
+* error ([c526b9f](https://github.com/mafqla/yalis-blog/commit/c526b9f57ebe81ce5c3c66ffaf82f66b1a018a5c))
+
 ## [0.54.0-alpha](https://github.com/mafqla/yalis-blog/compare/v0.53.0-alpha...v0.54.0-alpha) (2024-02-28)
 
 
