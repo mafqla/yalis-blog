@@ -1,4 +1,4 @@
-import { defineConfig, splitVendorChunkPlugin } from 'vite'
+import { defineConfig } from 'vite'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import { ArcoResolver } from 'unplugin-vue-components/resolvers'
@@ -36,15 +36,13 @@ export default defineConfig({
           resolveIcons: true
         })
       ]
-    }),
+    })
     // visualizer({
     //   filename: './node_modules/.cache/visualizer/stats.html',
     //   open: true,
     //   gzipSize: true,
     //   brotliSize: true
     // })
-
-    splitVendorChunkPlugin()
   ],
   build: {
     minify: 'esbuild',
