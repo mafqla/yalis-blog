@@ -11,7 +11,7 @@
   "scripts": {
     "dev": "vitepress dev docs",
     "build": "vitepress build docs",
-    "docs:serve": "vitepress serve docs"
+    "preview": "vitepress serve docs"
   },
   "devDependencies": {
     "@mermaid-js/mermaid-mindmap": "^9.3.0",

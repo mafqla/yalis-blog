@@ -4,5 +4,10 @@
       "source": "/douyin/(.*)",
       "destination": "/api/proxy"
     }
-  ]
+  ],
+  "git": {
+    "deploymentEnabled": {
+      "gh-pages": false
+    }
+  }
 }
