@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.73.0-alpha](https://github.com/mafqla/yalis-blog/compare/v0.72.0-alpha...v0.73.0-alpha) (2024-03-27)
+
+
+### Features
+
+* new ([9f0aaa5](https://github.com/mafqla/yalis-blog/commit/9f0aaa58b7ec231a73d37c3dd44ad62444bfb903))
+
 ## [0.72.0-alpha](https://github.com/mafqla/yalis-blog/compare/v0.71.0-alpha...v0.72.0-alpha) (2024-03-26)
 
 
