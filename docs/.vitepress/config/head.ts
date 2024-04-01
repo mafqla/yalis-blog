@@ -37,5 +37,6 @@ export const head: HeadConfig[] = [
       name: 'baidu-site-verification',
       content: 'codeva-OOIenenKnQ'
     }
-  ]
+  ],
+  ['meta', { name: 'baidu-site-verification', content: 'codeva-p6nEIT8GVZ' }]
 ]
