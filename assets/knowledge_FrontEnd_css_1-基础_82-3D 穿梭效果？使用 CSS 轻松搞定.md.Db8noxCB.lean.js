@@ -1,0 +1,9 @@
+import{_ as h,a as n,b as k,c as l,d as t}from"./chunks/130324868-f895a45e-a74d-44e4-8f1f-043e258507c7.eSPaOs_b.js";import{_ as p,c as B,o as F,V as a,m as s,a as i}from"./chunks/framework.bW6FiXxS.js";const e="/assets/130325052-c98c7552-c4eb-496d-84bc-6dd1c6f887e0.27K1VQbi.gif",D="/assets/140636977-4747ce9c-2592-49f8-902a-5663c52c083c.P-pGZpxy.png",S=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"knowledge/FrontEnd/css/1-基础/82-3D 穿梭效果？使用 CSS 轻松搞定.md","filePath":"knowledge/FrontEnd/css/1-基础/82-3D 穿梭效果？使用 CSS 轻松搞定.md","lastUpdated":1712628326000}'),d={name:"knowledge/FrontEnd/css/1-基础/82-3D 穿梭效果？使用 CSS 轻松搞定.md"},r=a("",30),g=s("iframe",{height:"300",style:{width:"100%"},scrolling:"no",title:"Pure CSS Galaxy  Shuttle",src:"https://codepen.io/mafqla/embed/qBveREy?default-tab=html%2Cresult&editable=true&theme-id=light",frameborder:"no",loading:"lazy",allowtransparency:"true",allowfullscreen:"true"},`
+  See the Pen <a href="https://codepen.io/mafqla/pen/qBveREy">
+  Pure CSS Galaxy  Shuttle</a> by mafqla (<a href="https://codepen.io/mafqla">@mafqla</a>)
+  on <a href="https://codepen.io">CodePen</a>.
+`,-1),y=a("",12),A=s("iframe",{height:"300",style:{width:"100%"},scrolling:"no",title:"Pure CSS Galaxy  Shuttle 2",src:"https://codepen.io/mafqla/embed/yLwmgyM?default-tab=html%2Cresult&editable=true&theme-id=light",frameborder:"no",loading:"lazy",allowtransparency:"true",allowfullscreen:"true"},`
+  See the Pen <a href="https://codepen.io/mafqla/pen/yLwmgyM">
+  Pure CSS Galaxy  Shuttle 2</a> by mafqla (<a href="https://codepen.io/mafqla">@mafqla</a>)
+  on <a href="https://codepen.io">CodePen</a>.
+`,-1),C=s("p",null,[i("通过调整动画的时间，"),s("code",null,"perspective"),i(" 的值，每组元素的 "),s("code",null,"translateZ()"),i(" 变化距离，可以得到各种不一样的观感和效果，感兴趣的读者可以基于我上述给的 DEMO 自己尝试尝试。")],-1),c=[r,g,y,A,C];function o(E,m,u,f,v,b){return F(),B("div",null,c)}const x=p(d,[["render",o]]);export{S as __pageData,x as default};
