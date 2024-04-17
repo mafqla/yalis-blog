@@ -1,0 +1,9 @@
+import{_ as a,c as n,o as t,V as s,m as i}from"./chunks/framework.bW6FiXxS.js";const h="/assets/154478226-dc1ae7db-d8e8-449a-bb76-1b32a3cb23af.Enj32HSA.gif",l="/assets/154478732-5671a142-69d1-4614-91c1-244c436761b1.MOyoeTqo.png",k="/assets/154479128-eccf2fd6-96d8-4f3d-9c34-74b0311504dd.sm8yGoRl.gif",p="/assets/154481493-b7033eea-ae71-478c-91e5-272aa5eb89a9.ZtqupssR.png",e="/assets/154481567-0b9ae31e-c4f9-4651-a29a-9864f332d38e.t_KZv4eR.png",f=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"knowledge/FrontEnd/css/1-基础/93-渐变消失遮罩的多种实现方式.md","filePath":"knowledge/FrontEnd/css/1-基础/93-渐变消失遮罩的多种实现方式.md","lastUpdated":1713322994000}'),B={name:"knowledge/FrontEnd/css/1-基础/93-渐变消失遮罩的多种实现方式.md"},F=s("",19),r=i("iframe",{height:"300",style:{width:"100%"},scrolling:"no",title:"Linear Gradient Mask & Pointer-event",src:"https://codepen.io/mafqla/embed/GRLpBBQ?default-tab=html%2Cresult&editable=true&theme-id=light",frameborder:"no",loading:"lazy",allowtransparency:"true",allowfullscreen:"true"},`
+  See the Pen <a href="https://codepen.io/mafqla/pen/GRLpBBQ">
+  Linear Gradient Mask &amp; Pointer-event</a> by mafqla (<a href="https://codepen.io/mafqla">@mafqla</a>)
+  on <a href="https://codepen.io">CodePen</a>.
+`,-1),d=s("",13),g=i("iframe",{height:"300",style:{width:"100%"},scrolling:"no",title:"Linear Gradient Mask",src:"https://codepen.io/mafqla/embed/WNWQKKL?default-tab=html%2Cresult&editable=true&theme-id=light",frameborder:"no",loading:"lazy",allowtransparency:"true",allowfullscreen:"true"},`
+  See the Pen <a href="https://codepen.io/mafqla/pen/WNWQKKL">
+  Linear Gradient Mask</a> by mafqla (<a href="https://codepen.io/mafqla">@mafqla</a>)
+  on <a href="https://codepen.io">CodePen</a>.
+`,-1),D=[F,r,d,g];function y(o,A,c,C,m,E){return t(),n("div",null,D)}const _=a(B,[["render",y]]);export{f as __pageData,_ as default};
