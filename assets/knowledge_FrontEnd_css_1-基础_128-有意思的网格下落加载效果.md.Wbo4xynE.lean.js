@@ -1,0 +1,5 @@
+import{_ as i,c as a,o as n,V as h,m as k}from"./chunks/framework.bW6FiXxS.js";const l="/assets/252990536-c6d0af6e-1bdb-427c-8cc5-028840d556a9.cecoIN7B.png",s="/assets/252994057-0993adf5-f4e9-4bc1-b8cc-0bf6c1bd70f9.FaBjbyf2.gif",c=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"knowledge/FrontEnd/css/1-基础/128-有意思的网格下落加载效果.md","filePath":"knowledge/FrontEnd/css/1-基础/128-有意思的网格下落加载效果.md","lastUpdated":1714441472000}'),p={name:"knowledge/FrontEnd/css/1-基础/128-有意思的网格下落加载效果.md"},t=h("",33),B=k("iframe",{height:"300",style:{width:"100%"},scrolling:"no",title:"Flex Item Fall Down",src:"https://codepen.io/mafqla/embed/MWRxbvN?default-tab=html%2Cresult&editable=true&theme-id=light",frameborder:"no",loading:"lazy",allowtransparency:"true",allowfullscreen:"true"},`
+  See the Pen <a href="https://codepen.io/mafqla/pen/MWRxbvN">
+  Flex Item Fall Down</a> by mafqla (<a href="https://codepen.io/mafqla">@mafqla</a>)
+  on <a href="https://codepen.io">CodePen</a>.
+`,-1),F=[t,B];function e(D,r,d,g,y,A){return n(),a("div",null,F)}const o=i(p,[["render",e]]);export{c as __pageData,o as default};
