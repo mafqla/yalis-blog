@@ -57,7 +57,8 @@ export default defineConfig({
     '**/*.ico',
     '**/*.gif',
     '**/*.jpg',
-    '**/*.jpeg'
+    '**/*.jpeg',
+    '**/*.awebp'
   ],
   esbuild: {
     drop: ['console', 'debugger'],
