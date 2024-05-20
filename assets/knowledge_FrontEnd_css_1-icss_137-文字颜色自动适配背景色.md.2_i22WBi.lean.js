@@ -1,0 +1,13 @@
+import{_ as l,c as h,o as n,V as i,m as s,a}from"./chunks/framework.bW6FiXxS.js";const t="/assets/16382003e81b44fabd9f26071565c033~tplv-k3u1fbpfcp-jj-mark5.eMIiocjL.awebp",p="/assets/9d1c2ccb1f9d4c22a21b295cebf86d62~tplv-k3u1fbpfcp-jj-markq75.d1bff8_5.awebp",k="/assets/889a29140cc0424992d4a69ef9008939~tplv-k3u1fbpfcp-jj-mark5.5ZRdIOb-.awebp",e="/assets/32b79cb2927447bcbed0d8c078e1ad4a~tplv-k3u1fbpfcp-jq75.TcsTzpG8.awebp",B="/assets/2724fdc95294428fabece52a3d817c1e~tplv-k3u1fbpfcp-jj-mar5.SKN62jeq.awebp",F="/assets/002561376bcf4b688158b858c3b3635a~tplv-k3u1fbpfcp-jj-mark.f6XljsMT.awebp",w=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"knowledge/FrontEnd/css/1-icss/137-文字颜色自动适配背景色.md","filePath":"knowledge/FrontEnd/css/1-icss/137-文字颜色自动适配背景色.md","lastUpdated":1716173186000}'),r={name:"knowledge/FrontEnd/css/1-icss/137-文字颜色自动适配背景色.md"},d=i("",42),o=s("iframe",{height:"300",style:{width:"100%"},scrolling:"no",title:"CSS Relative Color",src:"https://codepen.io/mafqla/embed/pomvVVG?default-tab=html%2Cresult&editable=true&theme-id=light",frameborder:"no",loading:"lazy",allowtransparency:"true",allowfullscreen:"true"},`
+  See the Pen <a href="https://codepen.io/mafqla/pen/pomvVVG">
+  CSS Relative Color</a> by mafqla (<a href="https://codepen.io/mafqla">@mafqla</a>)
+  on <a href="https://codepen.io">CodePen</a>.
+`,-1),g=i("",19),D=s("iframe",{height:"300",style:{width:"100%"},scrolling:"no",title:"CSS Relatvie Color Adapt BG",src:"https://codepen.io/mafqla/embed/xxNbjzw?default-tab=html%2Cresult&editable=true&theme-id=light",frameborder:"no",loading:"lazy",allowtransparency:"true",allowfullscreen:"true"},`
+  See the Pen <a href="https://codepen.io/mafqla/pen/xxNbjzw">
+  CSS Relatvie Color Adapt BG</a> by mafqla (<a href="https://codepen.io/mafqla">@mafqla</a>)
+  on <a href="https://codepen.io">CodePen</a>.
+`,-1),c=i("",10),A=s("iframe",{height:"300",style:{width:"100%"},scrolling:"no",title:"CSS Relatvie Color Adapt BG",src:"https://codepen.io/mafqla/embed/vYwEjrm?default-tab=html%2Cresult&editable=true&theme-id=light",frameborder:"no",loading:"lazy",allowtransparency:"true",allowfullscreen:"true"},`
+  See the Pen <a href="https://codepen.io/mafqla/pen/vYwEjrm">
+  CSS Relatvie Color Adapt BG</a> by mafqla (<a href="https://codepen.io/mafqla">@mafqla</a>)
+  on <a href="https://codepen.io">CodePen</a>.
+`,-1),y=s("p",null,"此方案的优势在于：",-1),C=s("ol",null,[s("li",null,"可以限定前景 color 颜色为固定的几个色值，以保证 UI 层面的统一及美观"),s("li",null,"满足任何情况下的背景色")],-1),m=s("p",null,[a("当然，唯一限制这个方案的最大问题在于，当前，"),s("code",null,"color-contrast"),a(" 还只是一个实验室功能，未大规模被兼容。")],-1),b=[d,o,g,D,c,A,y,C,m];function f(E,v,S,_,u,z){return n(),h("div",null,b)}const T=l(r,[["render",f]]);export{w as __pageData,T as default};

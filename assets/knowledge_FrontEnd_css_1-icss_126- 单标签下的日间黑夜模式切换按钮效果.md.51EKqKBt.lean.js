@@ -1,5 +1,0 @@
-import{_ as s,c as i,o as a,V as h,m as k}from"./chunks/framework.bW6FiXxS.js";const y=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"knowledge/FrontEnd/css/1-icss/126- 单标签下的日间黑夜模式切换按钮效果.md","filePath":"knowledge/FrontEnd/css/1-icss/126- 单标签下的日间黑夜模式切换按钮效果.md","lastUpdated":1716173138000}'),n={name:"knowledge/FrontEnd/css/1-icss/126- 单标签下的日间黑夜模式切换按钮效果.md"},p=h("",80),l=k("iframe",{height:"300",style:{width:"100%"},scrolling:"no",title:"Single Div BTN Toggle Effect",src:"https://codepen.io/mafqla/embed/bGJzpWz?default-tab=html%2Cresult&editable=true&theme-id=light",frameborder:"no",loading:"lazy",allowtransparency:"true",allowfullscreen:"true"},`
-  See the Pen <a href="https://codepen.io/mafqla/pen/bGJzpWz">
-  Single Div BTN Toggle Effect</a> by mafqla (<a href="https://codepen.io/mafqla">@mafqla</a>)
-  on <a href="https://codepen.io">CodePen</a>.
-`,-1),t=[p,l];function e(F,B,r,D,C,d){return a(),i("div",null,t)}const A=s(n,[["render",e]]);export{y as __pageData,A as default};
