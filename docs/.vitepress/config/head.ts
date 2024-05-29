@@ -41,7 +41,10 @@ export const head: HeadConfig[] = [
   ['meta', { name: 'baidu-site-verification', content: 'codeva-p6nEIT8GVZ' }],
   [
     'script',
-    {},
-    `<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "55621561f58a4091a2dfe394fb89847a"}'></script>`
+    {
+      defer: '',
+      src: 'https://static.cloudflareinsights.com/beacon.min.js',
+      'data-cf-beacon': '{"token": "55621561f58a4091a2dfe394fb89847a"}'
+    }
   ]
 ]

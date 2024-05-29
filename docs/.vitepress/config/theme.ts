@@ -68,5 +68,9 @@ export const themeConfig: DefaultTheme.Config = {
     icpRecordCode: false, // ICP备案号
     publicSecurityRecordCode: false, // 联网备案号
     copyright: `Copyright © 2019-${new Date().getFullYear()} yalis` // 版权信息
+  },
+  sitemap: {
+    hostname: 'https://skyseek.top',
+    lastmodDateOnly: false
   }
 }
