@@ -1,9 +1,0 @@
-import{_ as a,c as t,o as n,V as i,m as s}from"./chunks/framework.bW6FiXxS.js";const h="/assets/2d9c0821c091430dad6658cff154ed2d~tplv-k3u1fbpfcp-jj-mar75._O30Dgtv.awebp",l="/assets/8f5bb3fb8b54479187110cef0c810dab~tplv-k3u1fbpfcp-jj-m75.XTActUxk.awebp",k="/assets/3baabe9088c74cddb8fa1eed5730ac46~tplv-k3u1fbpfcp-jj-marq75.8K2LuP0m.awebp",E=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"knowledge/FrontEnd/css/1-icss/139-accent-color 强调色.md","filePath":"knowledge/FrontEnd/css/1-icss/139-accent-color 强调色.md","lastUpdated":1716261378000}'),p={name:"knowledge/FrontEnd/css/1-icss/139-accent-color 强调色.md"},e=i("",19),F=s("iframe",{height:"300",style:{width:"100%"},scrolling:"no",title:"Accent-color with custom property",src:"https://codepen.io/mafqla/embed/oNRXyap?default-tab=html%2Cresult&editable=true&theme-id=light",frameborder:"no",loading:"lazy",allowtransparency:"true",allowfullscreen:"true"},`
-  See the Pen <a href="https://codepen.io/mafqla/pen/oNRXyap">
-  Accent-color with custom property</a> by mafqla (<a href="https://codepen.io/mafqla">@mafqla</a>)
-  on <a href="https://codepen.io">CodePen</a>.
-`,-1),r=i("",17),B=s("blockquote",null,[s("iframe",{height:"300",style:{width:"100%"},scrolling:"no",title:"Accent-color with custom property",src:"https://codepen.io/mafqla/embed/RwmPJeB?default-tab=html%2Cresult&editable=true&theme-id=light",frameborder:"no",loading:"lazy",allowtransparency:"true",allowfullscreen:"true"},`
-  See the Pen <a href="https://codepen.io/mafqla/pen/RwmPJeB">
-  Accent-color with custom property</a> by mafqla (<a href="https://codepen.io/mafqla">@mafqla</a>)
-  on <a href="https://codepen.io">CodePen</a>.
-`)],-1),d=[e,F,r,B];function D(g,c,o,y,A,C){return n(),t("div",null,d)}const u=a(p,[["render",D]]);export{E as __pageData,u as default};
