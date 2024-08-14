@@ -1,4 +1,4 @@
-const site = 'https://yalisky.eu.org'
+const site = 'https://skyseek.top'
 
 export const metaData = {
   lang: 'zh-CN',

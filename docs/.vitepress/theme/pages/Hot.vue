@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import Douyin from '../components/hot/douyin.vue'
 </script>
 <template>
   <div class="hot">
@@ -8,7 +7,6 @@ import Douyin from '../components/hot/douyin.vue'
       :bordered="false"
     >
       <a-list-item>
-        <Douyin />
       </a-list-item>
     </a-list>
   </div>

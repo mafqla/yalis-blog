@@ -98,11 +98,6 @@ export const nav: DefaultTheme.Config['nav'] = [
     activeMatch: '/hot'
   },
   {
-    text: 'RSS订阅',
-    link: '/rss-views',
-    activeMatch: '/rss-views'
-  },
-  {
     text: '归档',
     link: '/archives',
     activeMatch: '/archives'
