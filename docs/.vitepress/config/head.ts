@@ -46,5 +46,13 @@ export const head: HeadConfig[] = [
       src: 'https://static.cloudflareinsights.com/beacon.min.js',
       'data-cf-beacon': '{"token": "55621561f58a4091a2dfe394fb89847a"}'
     }
+  ],
+  [
+    'script',
+    {
+      defer: '',
+      src: 'https://cloud.umami.is/script.js',
+      'data-website-id': '48ac5019-28e4-4027-b213-686864f6fc79'
+    }
   ]
 ]
