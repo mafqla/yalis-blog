@@ -101,5 +101,9 @@ export const nav: DefaultTheme.Config['nav'] = [
     text: '归档',
     link: '/archives',
     activeMatch: '/archives'
+  },
+  {
+    text: '分析',
+    link: 'https://cloud.umami.is/share/1vdnfB6VfuMOWonL/skyseek.top'
   }
 ]
