@@ -4,7 +4,7 @@ export const nav: DefaultTheme.Config['nav'] = [
   {
     text: '博客',
     link: '/blogs/index',
-    activeMatch: '/blogs/'
+    activeMatch: '/blogs'
   },
   {
     text: '知识库',
@@ -92,15 +92,16 @@ export const nav: DefaultTheme.Config['nav'] = [
     link: '/tags',
     activeMatch: '/tags'
   },
-  {
-    text: '热搜',
-    link: '/hot',
-    activeMatch: '/hot'
-  },
+
   {
     text: '归档',
     link: '/archives',
     activeMatch: '/archives'
+  },
+  {
+    text: '关于我',
+    link: '/about/me',
+    activeMatch: '/about/me'
   },
   {
     text: '分析',
