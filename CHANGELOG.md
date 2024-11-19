@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.112.0-alpha](https://github.com/mafqla/yalis-blog/compare/v0.111.2-alpha...v0.112.0-alpha) (2024-11-19)
+
+
+### Features
+
+* up nav and add about me page ([13eb90e](https://github.com/mafqla/yalis-blog/commit/13eb90e3cff2d110918bc07391016753e3caac09))
+
 ## [0.111.2-alpha](https://github.com/mafqla/yalis-blog/compare/v0.111.1-alpha...v0.111.2-alpha) (2024-07-05)
 
 
