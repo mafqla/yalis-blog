@@ -8,30 +8,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout  code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v6
 
       - name: Install pnpm
-        uses: pnpm/action-setup@v4
+        uses: pnpm/action-setup@v5
         with:
-          version: latest
+          version: 10.28.2
 
-      - name: Set node version to 20
-        uses: actions/setup-node@v2
+      - name: Set node version to 22
+        uses: actions/setup-node@v6
         with:
-          node-version: 20
+          node-version: 22
           cache: 'pnpm'
-      - name: Get pnpm store directory
-        shell: bash
-        run: |
-          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
-
-      - uses: actions/cache@v3
-        name: Setup pnpm cache
-        with:
-          path: ${{ env.STORE_PATH }}
-          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-pnpm-store-
+          cache-dependency-path: pnpm-lock.yaml
       - run: pnpm install
       - name: Install and Build   
         run: |
