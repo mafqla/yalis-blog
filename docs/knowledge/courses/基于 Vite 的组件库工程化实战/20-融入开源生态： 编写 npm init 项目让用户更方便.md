@@ -49,9 +49,9 @@ npm create vue my-app
 
 我们可以查阅 npm 的官方文档。里面对 npm init 功能有以下描述。
 
-`npm init <initializer>` 可以被用于安装一个新的或已经存在的 npm 软件包。
+<code>npm init &lt;initializer&gt;</code> 可以被用于安装一个新的或已经存在的 npm 软件包。
 
-Initializer 是一个被命名为 create-<initializer> 的软件包。它会通过 npm-exec 运行。
+Initializer 是一个被命名为 <code>create-&lt;initializer&gt;</code> 的软件包。它会通过 npm-exec 运行。
 
 以 smarty-ui 的 cli 为例，你只需要将软件包名称命名为  create-smarty-app，这样就可以通过。
 

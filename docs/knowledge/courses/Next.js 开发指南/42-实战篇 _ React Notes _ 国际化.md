@@ -202,7 +202,7 @@ export const config = {
 
 那如果个别图片就是需要根据语言自定义呢？比如《疯狂动物城》这部动漫中，电视节目主持人在不同的国家是不同的动物形象，中国是熊猫、澳大利亚是考拉、法国是驼鹿等，有的时候就是需要自定义：
 
-![image.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d5732405e3f94cdb9230e661b06f4cb6~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=950&h=338&s=485476&e=png&b=f2e3dd)
+![image.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d5732405e3f94cdb9230e661b06f4cb6~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=950\&h=338\&s=485476\&e=png\&b=f2e3dd)
 我们可以建立一个特别处理的图片白名单 `excludeFile`：
 
 ```javascript

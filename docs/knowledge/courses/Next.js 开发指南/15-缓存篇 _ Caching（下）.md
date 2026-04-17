@@ -235,7 +235,7 @@ export default async function Settings() {
 运行生产版本，交互效果如下：
 
 
-![cache-13.gif](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2ca548ee77b444eb96e34b8d868d3738~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1235&h=800&s=1605366&e=gif&f=66&b=262829)
+![cache-13.gif](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2ca548ee77b444eb96e34b8d868d3738~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1235\&h=800\&s=1605366\&e=gif\&f=66\&b=262829)
 
 交互效果看起来很正常是不是？但是注意：
 
@@ -277,7 +277,7 @@ export default function CacheLayout({
 
 运行生产版本，交互效果如下：
 
-![cache-14.gif](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/caeac218e1314bdf86c464f6534eecfb~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1235&h=800&s=650141&e=gif&f=46&b=292929)
+![cache-14.gif](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/caeac218e1314bdf86c464f6534eecfb~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1235\&h=800\&s=650141\&e=gif\&f=46\&b=292929)
 
 第三种方式是参照让路由缓存失效的方式：一种是使用 Server Actions，不过这里我们用不到 Server Actions。一种是调用 router.refresh，但是使用 router 需要声明为客户端组件，这就需要将布局改为客户端组件，虽然有点糟糕，但是也能用。
 
@@ -318,7 +318,7 @@ export const dynamic = 'force-dynamic'
 
 目的将其转为动态渲染。运行生产版本，效果如下：
 
-![cache-16.gif](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/282410b6f48443218699d266c1328161~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1235&h=800&s=751814&e=gif&f=53&b=2a2a2a)
+![cache-16.gif](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/282410b6f48443218699d266c1328161~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1235\&h=800\&s=751814\&e=gif\&f=53\&b=2a2a2a)
 
 第四种方式跟第三种方式都是用 router.refresh，不过实现方式不同。示例代码如下：
 
@@ -373,7 +373,7 @@ export default function CacheLayout({
 
 运行生产版本，交互效果如下：
 
-![cache-15.gif](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/52a49095ee07425ba2eeb47f66ab2349~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1235&h=800&s=1232048&e=gif&f=47&b=2a2a2a)
+![cache-15.gif](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/52a49095ee07425ba2eeb47f66ab2349~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1235\&h=800\&s=1232048\&e=gif\&f=47\&b=2a2a2a)
 
 ## 总结
 

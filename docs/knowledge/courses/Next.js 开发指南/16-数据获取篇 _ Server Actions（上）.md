@@ -264,7 +264,7 @@ Next.js 会自动插入一个 `<input type="hidden">`，其值为 `$ACTION_ID_xx
 我们为刚才的 ToDoList 增加一个 “添加运动” 的按钮。当点击的时候，将运动添加到 TODO 中：
 
 
-![image.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/80e49e5847d84e7c99af97a722592f77~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1148&h=566&s=49790&e=png&b=fefefe)
+![image.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/80e49e5847d84e7c99af97a722592f77~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1148\&h=566\&s=49790\&e=png\&b=fefefe)
 
 修改 `app/form2/page.js`，代码如下：
 
@@ -317,19 +317,19 @@ export async function createToDoDirectly(value) {
 交互效果如下：
 
 
-![actions-5.gif](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/561fa0b46ab241f9be6b03ec45622244~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=847&h=558&s=55228&e=gif&f=32&b=fefefe)
+![actions-5.gif](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/561fa0b46ab241f9be6b03ec45622244~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=847\&h=558\&s=55228\&e=gif\&f=32\&b=fefefe)
 
 这里的 Server Actions 是怎么实现的呢？
 
 其实还是发送了一个 POST 请求到当前地址：
 
 
-![截屏2024-03-13 10.50.23.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/99ed678d82c34f4c8e8b981110e3ea50~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2770&h=1668&s=523309&e=png&b=fefefe)
+![截屏2024-03-13 10.50.23.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/99ed678d82c34f4c8e8b981110e3ea50~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2770\&h=1668\&s=523309\&e=png\&b=fefefe)
 
 返回的依然是 RSC Payload：
 
 
-![image.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d78ded7ca837448d96ac6e5cbbcd3939~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2770&h=1098&s=444743&e=png&b=fefefe)
+![image.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d78ded7ca837448d96ac6e5cbbcd3939~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=2770\&h=1098\&s=444743\&e=png\&b=fefefe)
 
 ## 总结
 

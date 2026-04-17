@@ -7,8 +7,6 @@
 
 Dockerfile 是 Docker 中用于定义镜像自动化构建流程的配置文件，在 Dockerfile 中，包含了构建镜像过程中需要执行的命令和其他操作。通过 Dockerfile 我们可以更加清晰、明确的给定 Docker 镜像的制作过程，而由于其仅是简单、小体积的文件，在网络等其他介质中传递的速度极快，能够更快的帮助我们实现容器迁移和集群部署。
 
-![](https://user-gold-cdn.xitu.io/2018/10/1/1662ee4fdf802776?w=1047&h=332&f=png&s=55112)
-
 通常来说，我们对 Dockerfile 的定义就是针对一个名为 Dockerfile 的文件，其虽然没有扩展名，但本质就是一个文本文件，所以我们可以通过常见的文本编辑器或者 IDE 创建和编辑它。
 
 Dockerfile 的内容很简单，主要以两种形式呈现，一种是注释行，另一种是指令行。
@@ -164,9 +162,9 @@ CMD ["redis-server"]
 FROM 指令支持三种形式，不管是哪种形式，其核心逻辑就是指出能够被 Docker 识别的那个镜像，好让 Docker 从那个镜像之上开始构建工作。
 
 ```
-FROM <image> [AS <name>]
-FROM <image>[:<tag>] [AS <name>]
-FROM <image>[@<digest>] [AS <name>]
+FROM &lt;image&gt; [AS &lt;name&gt;]
+FROM &lt;image&gt;[:&lt;tag&gt;] [AS &lt;name&gt;]
+FROM &lt;image&gt;[@&lt;digest&gt;] [AS &lt;name&gt;]
 
 ```
 
@@ -181,7 +179,7 @@ FROM <image>[@<digest>] [AS <name>]
 在 RUN 指令之后，我们直接拼接上需要执行的命令，在构建时，Docker 就会执行这些命令，并将它们对文件系统的修改记录下来，形成镜像的变化。
 
 ```
-RUN <command>
+RUN &lt;command&gt;
 RUN ["executable", "param1", "param2"]
 
 ```
@@ -217,7 +215,7 @@ ENTRYPOINT 指令和 CMD 指令的用法近似，都是给出需要执行的命�
 通过 EXPOSE 指令就可以为镜像指定要暴露的端口。
 
 ```
-EXPOSE <port> [<port>/<protocol>...]
+EXPOSE &lt;port&gt; [&lt;port&gt;/&lt;protocol&gt;...]
 
 ```
 
@@ -243,11 +241,11 @@ VOLUME ["/data"]
 在制作新的镜像的时候，我们可能需要将一些软件配置、程序代码、执行脚本等直接导入到镜像内的文件系统里，使用 COPY 或 ADD 指令能够帮助我们直接从宿主机的文件系统里拷贝内容到镜像里的文件系统中。
 
 ```
-COPY [--chown=<user>:<group>] <src>... <dest>
-ADD [--chown=<user>:<group>] <src>... <dest>
+COPY [--chown=&lt;user&gt;:&lt;group&gt;] &lt;src&gt;... &lt;dest&gt;
+ADD [--chown=&lt;user&gt;:&lt;group&gt;] &lt;src&gt;... &lt;dest&gt;
 
-COPY [--chown=<user>:<group>] ["<src>",... "<dest>"]
-ADD [--chown=<user>:<group>] ["<src>",... "<dest>"]
+COPY [--chown=&lt;user&gt;:&lt;group&gt;] ["&lt;src&gt;",... "&lt;dest&gt;"]
+ADD [--chown=&lt;user&gt;:&lt;group&gt;] ["&lt;src&gt;",... "&lt;dest&gt;"]
 
 ```
 

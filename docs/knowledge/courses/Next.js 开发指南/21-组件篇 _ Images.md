@@ -1,10 +1,10 @@
 ## 前言
 
-本篇开始我们进入组件篇，为大家详细介绍 Next.js 内置的四个组件，分别是：`<Image>`、`Font`、`<Link>`、`<Script>`，它们都是 Next.js 基于原生 HTML 标签做了诸多优化而专门抽象的组件，在开发的时候尽可能的使用这些组件。
+本篇开始我们进入组件篇，为大家详细介绍 Next.js 内置的四个组件，分别是：`<code>&lt;Image&gt;</code>`、`Font`、`<code>&lt;Link&gt;</code>`、`<code>&lt;Script&gt;</code>`，它们都是 Next.js 基于原生 HTML 标签做了诸多优化而专门抽象的组件，在开发的时候尽可能地使用这些组件。
 
-其中 `<Image>` 组件实现了懒加载和根据设备尺寸自动调整图片大小，`<Link> `组件实现了后台预获取资源，从而让页面转换更快更平滑，`<Script>` 组件使得你可以控制加载和执行第三方脚本等等……具体的功能和 API 我们会在组件篇中详细介绍。
+其中 `<code>&lt;Image&gt;</code>` 组件实现了懒加载和根据设备尺寸自动调整图片大小，`<code>&lt;Link&gt;</code>` 组件实现了后台预获取资源，从而让页面转换更快更平滑，`<code>&lt;Script&gt;</code>` 组件使得你可以控制加载和执行第三方脚本等等……具体的功能和 API 我们会在组件篇中详细介绍。
 
-本篇将介绍 `<Image>` 组件，因为图片往往占据了网页大小很大一部分，图片的优化可谓是重中之重。`Image` 组件也提供了非常多的 prop 和配置项，了解这些 prop 以及背后的原理有助于我们更加深入的使用 `Image` 组件，带来更好的用户体验。
+本篇将介绍 `<code>&lt;Image&gt;</code>` 组件，因为图片往往占据了网页大小很大一部分，图片的优化可谓是重中之重。`Image` 组件也提供了非常多的 prop 和配置项，了解这些 prop 以及背后的原理有助于我们更加深入地使用 `Image` 组件，带来更好的用户体验。
 ## 图片与 LCP
 ### 1. 图片占比
 根据 [Web Almanac](https://almanac.httparchive.org/en/2022/media) 中的介绍，图片大小占典型网站页面大小的很大一部分。根据统计，2021 年 6 月网站的总大小中位数是 2019 KB（移动端），其中 881 KB 是图像。这比 HTML（30 KB），CSS（72 KB），JavaScript（461 KB）和字体（97 KB）的总和还要多。
@@ -29,20 +29,20 @@ Largest Contentful Paint (LCP) 指标会报告视口内可见的最大图片或�
 
 让我们看一些  LCP 的例子：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cdad5f872000436386d02af3b2b22ab6~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1600&h=621&s=344333&e=png&b=faf4f4)
+![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cdad5f872000436386d02af3b2b22ab6~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1600\&h=621\&s=344333\&e=png\&b=faf4f4)
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d45d5ac94a014e66a4b791e61e2a41dc~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1600&h=621&s=397379&e=png&b=fbfbfb)
+![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d45d5ac94a014e66a4b791e61e2a41dc~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1600\&h=621\&s=397379\&e=png\&b=fbfbfb)
 
 那么问题来了，页面往往是分阶段加载的，网页中最大元素可能是在不断变化的，LCP 是怎么计算出来的呢？
 
-首先，浏览器会将 LCP 的元素限定在一些特定的元素类型内，比如`<img>` 元素、包含文本节点或其他内嵌级别文本元素的子项的块级元素、为自动播放 `<video>` 元素而绘制的第一帧、动画图片格式（例如 GIF 动画）的第一帧等等（这是为了简化这个问题，如果什么元素都计算一遍大小，就太复杂了而且没必要）。
+首先，浏览器会将 LCP 的元素限定在一些特定的元素类型内，比如 `<code>&lt;img&gt;</code>` 元素、包含文本节点或其他内嵌级别文本元素的子项的块级元素、为自动播放 `<code>&lt;video&gt;</code>` 元素而绘制的第一帧、动画图片格式（例如 GIF 动画）的第一帧等等（这是为了简化这个问题，如果什么元素都计算一遍大小，就太复杂了而且没必要）。
 
 然后浏览器在绘制完第一帧后，就会立即分派 largest-contentful-paint 类型的 PerformanceEntry，用于标识最大的内容元素。在渲染后续帧后，只要最大内容元素发生变化，该 API 就会再分派另一个 PerformanceEntry。简单的来说，每一帧绘制的时候，浏览器都会标示出最大内容元素。
 
 当用户与页面发生交互（通过点按、滚动或按键），浏览器就会停止报告新条目。（因为用户交互通常会改变向用户显示的内容，就比如滚动操作）。一般来说，发出的最后一个条目的 startTime 值是 LCP 值。
 ## `<Image>`
 ### 1. 功能特性
-讲解 LCP，只是为了帮助大家认识到图片优化的重要性（毕竟最大内容元素往往是图片）。回到 `<Image>` 组件上，Next.js 基于原生的 HTML `<img>` 元素，实现了这些优化功能：
+讲解 LCP，只是为了帮助大家认识到图片优化的重要性（毕竟最大内容元素往往是图片）。回到 `<code>&lt;Image&gt;</code>` 组件上，Next.js 基于原生的 HTML `<code>&lt;img&gt;</code>` 元素，实现了这些优化功能：
 
 1. 尺寸优化：自动为每个设备提供正确尺寸的图片，也会使用现代图片格式如 WebP 和 AVIF。
 2. 视觉稳定性：防止图片加载时发生布局偏移（Layout Shift）
@@ -51,7 +51,7 @@ Largest Contentful Paint (LCP) 指标会报告视口内可见的最大图片或�
 
 这些功能我们会在讲解组件 API 的时候一一涉及。
 ### 2. 基础使用
-这是 `<Image>` 组件的使用示例，看起来如同使用正常的 img 元素一样：
+这是 `<code>&lt;Image&gt;</code>` 组件的使用示例，看起来如同使用正常的 img 元素一样：
 
 ```javascript
 // app/page.js
@@ -69,7 +69,7 @@ export default function Page() {
 }
 ```
 ### 3. 支持的 props
- `<Image>` 组件支持传入这些 props：
+ `<code>&lt;Image&gt;</code>` 组件支持传入这些 props：
 
 | **Prop** | **示例** | **类型** | **是否必须** |
 | --- | --- | --- | --- |
@@ -83,7 +83,7 @@ export default function Page() {
 | [quality](https://nextjs.org/docs/app/api-reference/components/image#quality) | `quality={80}` | Integer (1-100) | - |
 | [priority](https://nextjs.org/docs/app/api-reference/components/image#priority) | `priority={true}` | Boolean | - |
 | [placeholder](https://nextjs.org/docs/app/api-reference/components/image#placeholder) | `placeholder="blur"` | String | - |
-| [style](https://nextjs.org/docs/app/api-reference/components/image#style) | `style={{objectFit: "contain"}}` | Object | - |
+| [style](https://nextjs.org/docs/app/api-reference/components/image#style) | <code>style=&#123;&#123;objectFit: "contain"&#125;&#125;</code> | Object | - |
 | [onLoadingComplete](https://nextjs.org/docs/app/api-reference/components/image#onloadingcomplete) | `onLoadingComplete={img => done())}` | Function | - |
 | [onLoad](https://nextjs.org/docs/app/api-reference/components/image#onload) | `onLoad={event => done())}` | Function | - |
 | [onError](https://nextjs.org/docs/app/api-reference/components/image#onerror) | `onError(event => fail()}` | Function | - |
@@ -242,7 +242,7 @@ export default function Page() {
 
 正常显示如下：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ea029d04ff6748d297390b2d5a4fbcc9~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=856&h=642&s=500317&e=png&b=2d2a27)
+![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ea029d04ff6748d297390b2d5a4fbcc9~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=856\&h=642\&s=500317\&e=png\&b=2d2a27)
      
 如果添加 fill 属性后：
 
@@ -256,7 +256,7 @@ export default function Page() {
 
 效果如下，图片会被拉伸以适应容器：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/23133468308c414d8b153bd6689a8495~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=578&h=538&s=265329&e=png&b=302d2b)
+![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/23133468308c414d8b153bd6689a8495~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=578\&h=538\&s=265329\&e=png\&b=302d2b)
 
 如果使用 `object-fit: "contain"`：
 
@@ -271,7 +271,7 @@ export default function Page() {
 
 效果如下，图片在保持其宽高比的同时填充元素的整个内容框：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3b375639f2e14d59923b2cd89440bd6f~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=562&h=518&s=174623&e=png&b=ebebeb)
+![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3b375639f2e14d59923b2cd89440bd6f~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=562\&h=518\&s=174623\&e=png\&b=ebebeb)
 如果使用 `object-fit: "cover"`：
 
 ```javascript
@@ -285,7 +285,7 @@ export default function Page() {
 
 效果如下，图片在保持其宽高比的同时填充元素的整个内容框。如果对象的宽高比与内容框不相匹配，该对象将被剪裁以适应内容框：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2e02b46bc02941b6b9cf78e584e0578e~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=624&h=532&s=232733&e=png&b=282523)
+![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2e02b46bc02941b6b9cf78e584e0578e~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=624\&h=532\&s=232733\&e=png\&b=282523)
      
 ### 10. sizes
 HTML 5.1 新增加了 img 元素的 `srcset`、`sizes` 属性，用于设置响应式图像。
@@ -302,7 +302,7 @@ HTML 5.1 新增加了 img 元素的 `srcset`、`sizes` 属性，用于设置响�
 ```
 效果如下：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a316177c7f664b9ab520736e62d054d2~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=480&h=425&s=130728&e=png&a=1&b=f4f1f0)
+![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a316177c7f664b9ab520736e62d054d2~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=480\&h=425\&s=130728\&e=png\&a=1\&b=f4f1f0)
 
 srcset 是由逗号分隔的一个或多个字符串组成，每段字符串由以下组成：
 
@@ -365,17 +365,17 @@ sizes 也是由逗号分隔的一个或多个字符串组成，每段字符串�
 
 比如在这个例子中，如果浏览器的视口是 480px，那么 sizes 中的第一个条件 (max-width: 600px) 就为真，所以选择 480px 大小，因为 480px 与固有宽度 480w 最接近，所以加载 elva-fairy-small.jpg。通过这种方式就可以实现移动端加载小图片，从而加快移动端的加载速度。
 
-讲完 img 元素的 `srcset` 和 `sizes` 属性，回到 `<Image>` 组件上，使用 Next.js，你并不需要设置 `srcset`，Next.js 会自动为你生成。设置 sizes 属性会影响生成的 `srcset` 的值。
+讲完 img 元素的 `srcset` 和 `sizes` 属性，回到 `<code>&lt;Image&gt;</code>` 组件上，使用 Next.js，你并不需要设置 `srcset`，Next.js 会自动为你生成。设置 sizes 属性会影响生成的 `srcset` 的值。
 
 如果你不设置组件的 sizes 属性，Next.js 会用 1x、2x 这种像素密度描述符，而如果你设置了 sizes 属性，Next.js 会用 640w、750w 这种固有宽度描述符。
 
 设置前：
      
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9ca8290c0b4849e6a4c936c1398140c9~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1182&h=124&s=69379&e=png&b=282828)
+![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9ca8290c0b4849e6a4c936c1398140c9~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1182\&h=124\&s=69379\&e=png\&b=282828)
      
 设置后：
      
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/031333cd47564ad399e819642ae912f7~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1178&h=436&s=253485&e=png&b=282828)
+![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/031333cd47564ad399e819642ae912f7~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1178\&h=436\&s=253485\&e=png\&b=282828)
 ### 11. quality
 表示优化图片的质量，值为 1 到 100 之间的整数，100 表示最好的品质，也是最大的文件大小。默认是 75。
 
@@ -396,7 +396,7 @@ priority={false} // {false} | {true}
 
 运行 `next dev` 的时候，如果 LCP 元素是一个图片，但没有设置 priority 属性，控制台里会有警告：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d5a914226438476ca76d26e481b6a6c8~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1398&h=104&s=54212&e=png&b=3f3a2e)
+![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d5a914226438476ca76d26e481b6a6c8~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1398\&h=104\&s=54212\&e=png\&b=3f3a2e)
 
 使用示例代码：
 
@@ -424,7 +424,7 @@ placeholder = 'empty' // "empty" | "blur" | "data:image/..."
 
 这是一个默认的 [blur 效果演示](https://image-component.nextjs.gallery/placeholder)：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/74b6fe2095ec48e8ba8748518f50ee4b~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=803&h=575&s=123548&e=gif&f=6&b=66868d)
+![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/74b6fe2095ec48e8ba8748518f50ee4b~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=803\&h=575\&s=123548\&e=gif\&f=6\&b=66868d)
 ### 14. blurDataURL
 只有当你设置了 `placeholder="blur"`，该属性值才会生效。
 
@@ -432,7 +432,7 @@ placeholder = 'empty' // "empty" | "blur" | "data:image/..."
 
 可以借助 blurDataURI 实现这种[色彩效果](https://image-component.nextjs.gallery/placeholder)：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2aa039c8c7034d3b9a38a67de8c28126~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=750&h=1020&s=326943&e=gif&f=8&b=e4b23f)
+![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2aa039c8c7034d3b9a38a67de8c28126~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=750\&h=1020\&s=326943\&e=gif\&f=8\&b=e4b23f)
 
 可以借助 [https://png-pixel.com/](https://png-pixel.com/) 快速获得一个纯色图片的 Data URL。
 ### 15. style
@@ -458,7 +458,7 @@ export default function ProfileImage() {
 <Image onLoadingComplete={(img) => console.log(img.naturalWidth)} />
 ```
 
-当图片加载完毕的时候，会执行该回调函数，同时占位符图片会被删除。回调函数调用的时候会传入一个参数，该参数是对底层 <img> 元素的引用。
+当图片加载完毕的时候，会执行该回调函数，同时占位符图片会被删除。回调函数调用的时候会传入一个参数，该参数是对底层 `<code>&lt;img&gt;</code>` 元素的引用。
 
 注意：因为组件接收一个函数作为参数，需要使用客户端组件。
 ### 17. onLoad
@@ -516,7 +516,7 @@ module.exports = {
 }
 ```
 ### 21. 其他 props
-其他传给 `<Image />` 组件的属性都会传给底层的 img 元素。但以下属性除外：
+其他传给 `<code>&lt;Image /&gt;</code>` 组件的属性都会传给底层的 img 元素。但以下属性除外：
 
 1. `srcSet`，Next.js 会自动生成，如果你想更改，使用配置项里的 deviceSizes，下一节会讲到。
 2. `decoding`，它的值总是 `"async"`
@@ -637,7 +637,7 @@ module.exports = {
 
 `imageSize` 和 `deviceSizes` 会影响图片生成最终的 `srcset` 尺寸：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/186de6c29889461b9d4e2a0b6697481b~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1178&h=436&s=253485&e=png&b=282828)
+![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/186de6c29889461b9d4e2a0b6697481b~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1178\&h=436\&s=253485\&e=png\&b=282828)
 
 那么问题来了，都是用来生成最终的 `srcset`，直接用一个数组不就好了吗？为什么非要用两个数组？
 
@@ -661,13 +661,13 @@ export default function Page() {
 
 对应生成的 `srcset` 就包含了deviceSizes 和 imageSizes 的所有尺寸：
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7e64c0676e9f4c7ab906f3cdf31fab8f~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1076&h=606&s=333340&e=png&b=282828)
+![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7e64c0676e9f4c7ab906f3cdf31fab8f~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1076\&h=606\&s=333340\&e=png\&b=282828)
 
 当你使用了 `sizes` prop 的时候，说明图片的宽度是小于全屏宽度的。`imagesSizes` 的中的所有值应该都小于 `deviceSizes` 中的最小值。
 ### 6. formats
 Next.js 默认的图片优化 API 会自动通过请求中的 Accept 请求头检测浏览器支持的图片格式。
 
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a1a458a9d4fb4ae6a2bb54db2ecd4766~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=980&h=146&s=29237&e=png&b=292929)
+![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a1a458a9d4fb4ae6a2bb54db2ecd4766~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=980\&h=146\&s=29237\&e=png\&b=292929)
 
 如果 `Accept` 匹配多个配置的格式，数组中的第一个会被首先使用。因此，数组的顺序很重要，如果没有匹配到，或者源图片为动图，图片优化 API 会自动回退到原本的图片格式。
 
@@ -825,7 +825,7 @@ export default function Page({ photoUrl }) {
 }
 ```
 ### 4. 搭配 grid 实现
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e6e595921c0a46468e0ad8f18decc19f~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1600&h=592&s=256302&e=png&b=1a1a1a)
+![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e6e595921c0a46468e0ad8f18decc19f~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1600\&h=592\&s=256302\&e=png\&b=1a1a1a)
 ```javascript
 import Image from 'next/image'
 import mountains from '../public/mountains.jpg'
@@ -856,7 +856,7 @@ export default function Fill() {
 }
 ```
 ## 主题判断
-如果你希望实现浅色和深色模式下显示不同的图片，你可以创建一个新组件包含两个 `<Image>` 组件，然后通过 CSS 媒体查询显示正确的那一个：
+如果你希望实现浅色和深色模式下显示不同的图片，你可以创建一个新组件包含两个 `<code>&lt;Image&gt;</code>` 组件，然后通过 CSS 媒体查询显示正确的那一个：
 
 ```css
 // omponents/theme-image.module.css
@@ -894,12 +894,12 @@ const ThemeImage = (props) => {
 在使用 Next.js 图片组件的时候，你会发现，Next.js 要求必须有 width 和 height 属性，哪怕使用静态导入图片的方式，也只是不用自己手写这两个属性而已，Next.js 依然会为你自动添加 width 和 height，之所以这样做，就是为了防止发生布局偏移。所谓布局偏移，顾名思义，原本内容的位置突然发生偏移，多出现在加载的时候。导致布局偏移的原因有很多，图片没有尺寸是常见的一个原因，让我们看个演示视频：
 
 
-![10TEOBGBqZm1SEXE7KiC.gif](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/84c33fdc9221466284dc5507a3573638~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1920&h=1080&s=578501&e=gif&f=238&b=fdfcff)
+![10TEOBGBqZm1SEXE7KiC.gif](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/84c33fdc9221466284dc5507a3573638~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1920\&h=1080\&s=578501\&e=gif\&f=238\&b=fdfcff)
     
 这就是没有设置图片尺寸导致的布局偏移，如果设置尺寸呢：
 
 
-![38UiHViz44OWqlKFe1VC.gif](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/37363353c8254f8c8f85010e5d9e9211~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1920&h=1080&s=782430&e=gif&f=187&b=fdfcff)
+![38UiHViz44OWqlKFe1VC.gif](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/37363353c8254f8c8f85010e5d9e9211~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1920\&h=1080\&s=782430\&e=gif\&f=187\&b=fdfcff)
 
 你会发现图片在加载的时候，浏览器为图片预留了位置。
 
@@ -918,4 +918,4 @@ const ThemeImage = (props) => {
 4. [How to use the Next.js Image Component Effectively](https://www.zachgollwitzer.com/posts/nextjs-image-component-tutorial#option-3-probe-your-remote-images-for-their-size)
 5. [https://web.dev/articles/optimize-cls#images-without-dimensions](https://web.dev/articles/optimize-cls#images-without-dimensions)
 6. [Optimizing: Images](https://nextjs.org/docs/app/building-your-application/optimizing/images#image-sizing)
-7. [Components: <Image>](https://nextjs.org/docs/app/api-reference/components/image#minimumcachettl)
+7. [Components: &lt;Image&gt;](https://nextjs.org/docs/app/api-reference/components/image#minimumcachettl)

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, watchEffect } from 'vue'
+import { onMounted, ref, watch } from 'vue'
 
 import hot_boom from './icon/hot/hot_boom.png'
 import hot_first from './icon/hot/hot_first.png'
@@ -46,18 +46,28 @@ const selectItem = (index: number) => {
 
 const height = 660
 
-watchEffect(async () => {
+const loadWordList = async () => {
+  let response
+
   if (selectedIndex.value === 0) {
-    listData.value = (await hot()).data.word_list
+    response = await hot()
   } else if (selectedIndex.value === 1) {
-    listData.value = (await entertainment()).data.word_list
+    response = await entertainment()
   } else if (selectedIndex.value === 2) {
-    listData.value = (await society()).data.word_list
+    response = await society()
   } else if (selectedIndex.value === 3) {
-    listData.value = (await challenge()).data.word_list
+    response = await challenge()
   }
 
-  // console.log(listData.value)
+  listData.value = response?.data?.word_list ?? []
+}
+
+onMounted(() => {
+  void loadWordList()
+})
+
+watch(selectedIndex, () => {
+  void loadWordList()
 })
 </script>
 <template>

@@ -269,7 +269,7 @@ async function CatDetail() {
 让我们实际运行一下，效果如下：
 
 
-![cache-10.gif](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d95cede0ec354239b1b26da95a46a070~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1187&h=680&s=400357&e=gif&f=31&b=f8f4f4)
+![cache-10.gif](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d95cede0ec354239b1b26da95a46a070~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1187\&h=680\&s=400357\&e=gif\&f=31\&b=f8f4f4)
 
 无论是普通刷新还是硬刷新，图片都会保持不遍，且 3 次接口调用数据返回一致。
 
@@ -285,7 +285,7 @@ export const fetchCache = 'force-no-store'
 运行生产版本，此时交互效果如下：
 
 
-![cache-11.gif](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/95da27f365964fdcb2e1dbf9810c1a53~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1182&h=705&s=412571&e=gif&f=42&b=f9f6f6)
+![cache-11.gif](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/95da27f365964fdcb2e1dbf9810c1a53~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1182\&h=705\&s=412571\&e=gif\&f=42\&b=f9f6f6)
 
 因为设置了 fetch 不缓存，页面自动从静态渲染转为动态渲染，所以每次刷新，接口都会返回新的图片。但因为有请求记忆，3 次接口调用都是返回一样的图片。
 
@@ -302,7 +302,7 @@ async function getData() {
 运行生产版本，此时交互效果如下：
 
 
-![cache-12.gif](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d9342b86709649be94e47a67752ebeb3~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1182&h=705&s=564105&e=gif&f=56&b=fdfdfd)
+![cache-12.gif](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d9342b86709649be94e47a67752ebeb3~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1182\&h=705\&s=564105\&e=gif\&f=56\&b=fdfdfd)
 
 此时页面动态渲染，数据缓存和请求记忆都已关闭，所以每次请求都会返回不同的图片数据。
 
@@ -317,7 +317,7 @@ async function getData() {
 实际项目开发的时候，请求记忆和数据缓存往往同时存在，共同作用。
 
 
-![image.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b148832e89c44f77a00c9d4edaa67b42~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1600&h=661&s=124915&e=png&b=101010)
+![image.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b148832e89c44f77a00c9d4edaa67b42~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1600\&h=661\&s=124915\&e=png\&b=101010)
 
 ## 参考链接
 

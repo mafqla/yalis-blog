@@ -50,7 +50,7 @@ export function getReadingTime(
   wordPerMinute: number = 200
 ): PageInfo {
   const count = countWords(content || '')
-  const words = count >= 1000 ? `${Math.round(count / 100) / 10}k` : count
+  const words = count
 
   const readingTime = count / wordPerMinute
   const readTime = Math.max(1, Math.round(readingTime))

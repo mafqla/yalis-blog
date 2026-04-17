@@ -1,12 +1,12 @@
 ## 前言
 
-Next.js 内置了 `<Link>` 和 `<Script>` 组件，`<Link> `组件实现了后台预获取资源，从而让页面转换更快更平滑，`<Script>` 组件使得你可以控制加载和执行第三方脚本等等。本篇会详细介绍这两个组件的用法和相关参数。
+Next.js 内置了 `<code>&lt;Link&gt;</code>` 和 `<code>&lt;Script&gt;</code>` 组件，`<code>&lt;Link&gt;</code>` 组件实现了后台预获取资源，从而让页面转换更快更平滑，`<code>&lt;Script&gt;</code>` 组件使得你可以控制加载和执行第三方脚本等等。本篇会详细介绍这两个组件的用法和相关参数。
 
 ## `<Link>`
 
 ### 1. 介绍
 
-Link 组件是一个拓展了 HTML `<a>` 元素的 React 组件，提供了预加载和客户端路由之间的导航功能。它是 Next.js 路由导航的主要方式。使用示例如下：
+Link 组件是一个拓展了 HTML `<code>&lt;a&gt;</code>` 元素的 React 组件，提供了预加载和客户端路由之间的导航功能。它是 Next.js 路由导航的主要方式。使用示例如下：
 
 ```javascript
 // app/page.js
@@ -48,7 +48,7 @@ export default function Page() {
 </Link>
 ```
 
-那你可能就好奇了，除了 `pathname` 和 `query`，还支持传入哪些对象参数？我们翻下 [`<Link>` 组件的源码](https://github.com/vercel/next.js/blob/canary/packages/next/src/client/link.tsx)就知道了：
+那你可能就好奇了，除了 `pathname` 和 `query`，还支持传入哪些对象参数？我们翻下 [<code>&lt;Link&gt;</code> 组件的源码](https://github.com/vercel/next.js/blob/canary/packages/next/src/client/link.tsx)就知道了：
 
 ```javascript
 // next.js/packages/next/src/client /link.tsx
@@ -61,7 +61,7 @@ type InternalLinkProps = {
 
 可以看出，对象来自于 [url NPM 包](https://www.npmjs.com/package/url)，查阅 url 这个包，该对象的属性有（以 `'http://user:pass@host.com:8080/p/a/t/h?query=string#hash'`为例）：
 
-*   **href**：`'<http://user:pass@host.com:8080/p/a/t/h?query=string#hash>'`
+*   **href**：`'http://user:pass@host.com:8080/p/a/t/h?query=string#hash'`
 *   **protocol**：`'http:'`
 *   **host**: `'host.com:8080'`
 *   **auth**: `'user:pass'`
@@ -92,7 +92,7 @@ export default function Page() {
 
 ### 5. scroll
 
-默认值为 `true`。`<Link>`组件的默认行为是滚动到一个新导航的顶部或者在前进后退导航中维持之前的滚动位置。当值为 `false`，`next/link`不会在导航后滚动到新的页面顶部（继续维持上一个路由的位置）。
+默认值为 `true`。`<code>&lt;Link&gt;</code>` 组件的默认行为是滚动到一个新导航的顶部或者在前进后退导航中维持之前的滚动位置。当值为 `false`，`next/link` 不会在导航后滚动到新的页面顶部（继续维持上一个路由的位置）。
 
 ```javascript
 // app/page.js
@@ -109,7 +109,7 @@ export default function Page() {
 
 ### 6. prefetch
 
-默认值为 `true`。当值为 `true` 的时候，`next/link`会在后台预获取页面。这可以有效改善客户端导航性能。任何视口中的 `<Link />` （无论是初始加载的时候还是通过滚动）都会预加载。但是要注意：预获取仅在生产环境中开启。
+默认值为 `true`。当值为 `true` 的时候，`next/link` 会在后台预获取页面。这可以有效改善客户端导航性能。任何视口中的 `<code>&lt;Link /&gt;</code>` （无论是初始加载的时候还是通过滚动）都会预加载。但是要注意：预获取仅在生产环境中开启。
 
 你可以通过传递 `prefetch={false}`来禁用这个功能。
 
@@ -128,7 +128,7 @@ export default function Page() {
 
 ### 7. 其他 props
 
-其他 props 会自动转发给底层的 `<a>` 元素，比如 `target="_blank"`、`className`。
+其他 props 会自动转发给底层的 `<code>&lt;a&gt;</code>` 元素，比如 `target="_blank"`、`className`。
 
 ### 8. 示例
 
@@ -153,7 +153,7 @@ function Page({ posts }) {
 
 #### 8.2 中间件
 
-我们通常会用中间件实现鉴权等功能，然后让用户重定向到其他的页面。为了让  <Link /> 组件能够在有中间件的时候获取到重定向后的链接，你需要告诉 Next.js 用于展示的 URL 和用于预获取的 URL。
+我们通常会用中间件实现鉴权等功能，然后让用户重定向到其他的页面。为了让 `<code>&lt;Link /&gt;</code>` 组件能够在有中间件的时候获取到重定向后的链接，你需要告诉 Next.js 用于展示的 URL 和用于预获取的 URL。
 
 举个例子，当你访问 `/dashboard` 这个路由的时候，需要进行身份验证，如果身份验证通过，跳转到 `/auth/dashboard` 路由，如果没有通过，则跳转到公共访问的 `/public/dashboard` 路由，实现代码如下：
 
@@ -171,7 +171,7 @@ export function middleware(req) {
 }
 ```
 
-这个时候，为了让 `<Link />` 组件预获取正确的地址，你可以这样写：
+这个时候，为了让 `<code>&lt;Link /&gt;</code>` 组件预获取正确的地址，你可以这样写：
 
 ```javascript
 import Link from 'next/link'
@@ -282,7 +282,7 @@ export default function RootLayout({ children }) {
 
 外部脚本地址，字符串形式，外部绝对地址或者内部地址都可，除非使用内联脚本，否则该属性必传。
 
-所谓内联脚本，就像我们正常使用 script 标签一样，`<Script />` 也支持直接在组件内书写 JavaScript 代码：
+所谓内联脚本，就像我们正常使用 script 标签一样，`<code>&lt;Script /&gt;</code>` 也支持直接在组件内书写 JavaScript 代码：
 
 ```javascript
 <Script id="show-banner">
@@ -484,7 +484,7 @@ export default function Page() {
 
 ### 8. 其他 prop
 
-原生的 `<script>` 元素有很多 DOM 属性，其他添加在 Script 组件的 prop 都会自动转发给底层的 `<script>` 元素。
+原生的 `<code>&lt;script&gt;</code>` 元素有很多 DOM 属性，其他添加在 Script 组件的 prop 都会自动转发给底层的 `<code>&lt;script&gt;</code>` 元素。
 
 ```javascript
 // app/page.js
@@ -508,5 +508,5 @@ export default function Page() {
 
 1.  [https://github.com/vercel/next.js/blob/v9.5.2/docs/api-reference/next/link.md#dynamic-routes](https://github.com/vercel/next.js/blob/v9.5.2/docs/api-reference/next/link.md#dynamic-routes)
 2.  [Optimizing: Scripts](https://nextjs.org/docs/app/building-your-application/optimizing/scripts)
-3.  [Components: <Link>](https://nextjs.org/docs/app/api-reference/components/link)
-4.  [Components: <Script>](https://nextjs.org/docs/app/api-reference/components/script)
+3.  [Components: &lt;Link&gt;](https://nextjs.org/docs/app/api-reference/components/link)
+4.  [Components: &lt;Script&gt;](https://nextjs.org/docs/app/api-reference/components/script)
