@@ -16,6 +16,10 @@ on:
       - submitted
   status: {}
 
+permissions:
+  contents: write
+  pull-requests: write
+
 jobs:
   # 合并发布版本的 pr 到 master
   auto-merge:
@@ -24,7 +28,7 @@ jobs:
       - name: Automerge
         uses: 'pascalgn/automerge-action@v0.14.3'
         env:
-          GITHUB_TOKEN: '${{ secrets.RELEASE_TOKEN }}'
+          GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
           MERGE_LABELS: ''
           MERGE_FILTER_AUTHOR: 'mafqla'
           MERGE_DELETE_BRANCH: 'true'
