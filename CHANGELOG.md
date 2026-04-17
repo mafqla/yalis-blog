@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.112.1-alpha](https://github.com/mafqla/yalis-blog/compare/v0.112.0-alpha...v0.112.1-alpha) (2026-04-17)
+
+
+### Bug Fixes
+
+* restore douyin proxy and disable vercel gh-page deploy ([921d1ed](https://github.com/mafqla/yalis-blog/commit/921d1ed26d95ab17e9c1899892a285cb2eec2760))
+
 ## [0.112.0-alpha](https://github.com/mafqla/yalis-blog/compare/v0.111.2-alpha...v0.112.0-alpha) (2024-11-19)
 
 
