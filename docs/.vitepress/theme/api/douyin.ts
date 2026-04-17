@@ -1,8 +1,26 @@
 import axios from 'axios'
+import { metaData } from '../../config/constants'
 import { defalutParams } from './params'
 
+const localHosts = new Set(['localhost', '127.0.0.1'])
+const proxyHosts = new Set(['skyseek.top', 'www.skyseek.top', 'yalisky.vercel.app'])
+
+function getDouyinBaseURL() {
+  if (typeof window === 'undefined') {
+    return `${metaData.site}/douyin`
+  }
+
+  const { hostname } = window.location
+
+  if (localHosts.has(hostname) || proxyHosts.has(hostname)) {
+    return '/douyin'
+  }
+
+  return `${metaData.site}/douyin`
+}
+
 const service = axios.create({
-  baseURL: '/douyin', // api的base_url
+  baseURL: getDouyinBaseURL(), // api的base_url
   timeout: 5000, // 请求超时时间
 })
 service.interceptors.response.use(
